@@ -40,14 +40,7 @@
         <div class="rulesBtnView">Rules</div>
     </a>
     <div class="phases">
-        <div class="center">
-            <div class="phase"><a href="javascript: void(0);">Phase 1</a></div>
-            <div class="phase"><a href="javascript: void(0);"><span>Phase 3</span><br /><span>0h:22min:26sec left</span></a></div>
-            <div class="phase"><a href="javascript: void(0);">Phase 1</a></div>
-            <div class="phase"><a href="javascript: void(0);">Phase 1</a></div>
-            <div class="phase"><a href="javascript: void(0);">Phase 1</a></div>
-            <div class="phase"><a href="javascript: void(0);">Phase 1</a></div>
-        </div>
+        
     </div>
     <div class="headerBtns">
         <a href="./skills" class="skillsBtn"><div class="skillsBtnView">Skills</div></a>
@@ -56,11 +49,6 @@
   </div>
   <div>
     <div class="teams">
-        <ol id="source">
-        </ol>
-        <ol style="display: none" id="dest">
-        </ol>
-        <a href="style: float:right" id="demoHighscoreAnim">click for anim</a>
     </div>
     <div class="teamsProgress">
         <div class="teamProgress">
@@ -107,7 +95,13 @@
   <!-- JavaScript at the bottom for fast page loading -->
 
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script>
+    var global = {};
+    global.modules = {};
+  </script>
   <script src="js/libs/module.js"></script>
+  <script src="js/libs/view.js"></script>
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.4.min.js"><\/script>')</script>
   <script src="js/libs/jquery-ui-1.8.16.custom.min.js"></script>
@@ -140,6 +134,9 @@
     <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
   <![endif]-->
 
+  <script src="controllers/phases.js"></script>
+  <script src="controllers/teams.js"></script>
+  <script src="controllers/stats.js"></script>
   <script src="controllers/app.js"></script>
 
 </body>
