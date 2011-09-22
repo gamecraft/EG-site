@@ -68,6 +68,9 @@
                             plotChartContent("stats-chart-"+charts[i]);
                         }
                     });
+                $(".close", stats).click(function(){
+                    target.html("");
+                });
             });
         };
     };

@@ -1,11 +1,10 @@
 (function(){
-    global.modules.Phases = function() {
+    global.modules.Phases = function(phasesData) {
         var currentPhase = null;
         var itemActiveView = null;
         var itemView = null;
 
         this.renderTo = function(target, callback) {
-            var data = ["phase1", "phase2", "phase3"];
 
             global.view("/views/phases-container.html")
                 .render({}, target, function(){
@@ -17,8 +16,8 @@
                                     itemView = view1;
                                     itemActiveView = view2;
                                     
-                                    for(var i in data)
-                                        itemView.append({name: data[i]}, $(".phases"));
+                                    for(var i in phasesData)
+                                        itemView.append({name: phasesData[i].name}, $(".phases"));
 
                                     if(callback)
                                         callback();

@@ -1,7 +1,5 @@
 (function(){
-    global.modules.Teams = function(){
-        var teamsData = ["a","b", "c"];
-        var randData = ["b","a", "c"];
+    global.modules.Teams = function(teamsData){
         var teamView = null;
 
         var wireClickEvents = function(){
@@ -19,21 +17,21 @@
                         .loadView(function(view){
                             teamView = view;
                             for(var i in teamsData)
-                                teamView.append({name: teamsData[i]}, $("#teamsList"));
+                                teamView.append({name: teamsData[i].name}, $("#teamsList"));
 
                             wireClickEvents();
                         });
-
-                    $("#demoHighscoreAnim").click(function(e){
-                        $("#dest").html("");
-                        for(var i in randData)
-                                teamView.append({name: randData[i]}, $("#dest"));
-                        $('#teamsList').quicksand( $('#dest li'), function(){
-                           wireClickEvents();
-                        } );
-                        e.preventDefault();
-                    });
                 });
+        };
+
+        this.updateTeamsData = function(data){
+            $("#dest").html("");
+            for(var i in data)
+                    teamView.append({name: data[i].name}, $("#dest"));
+            $('#teamsList').quicksand( $('#dest li'), function(){
+               wireClickEvents();
+            } );
+            e.preventDefault();
         };
     }
 })();
