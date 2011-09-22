@@ -1,8 +1,7 @@
 (function(){
-    global.modules.Stats = function(){
-        this.plot =  function(target, title){
-          $(".stats .selected").html(title);
+    global.modules.Stats = function(teamName){
 
+        var plotChartContent = function(target){
           // Some simple loops to build up data arrays.
           var cosPoints = [];
           for (var i=0; i<2*Math.PI; i+=0.4){ 
@@ -26,7 +25,7 @@
           $("#"+target).html("");
           $.jqplot(target, [cosPoints, sinPoints, powPoints1, powPoints2], 
             { 
-              title:(title+' per team members'), 
+              title:(teamName+' per team members'), 
               // Series options are specified as an array of objects, one object
               // for each series.
               series:[ 
@@ -55,6 +54,21 @@
             }
           );  
             
+        };
+
+        this.renderTo = function(target, callback) {
+            var charts = ["chart1", "chart2", "chart3"];
+            target.html("");
+
+            global.view("/views/stats.html").render({title: teamName}, target, null, function(stats){
+                global.view("/views/stats-chart.html")
+                    .loadView(function(view){
+                        for(var i in charts) {
+                            view.append({id: charts[i]}, $(".charts", stats));
+                            plotChartContent("stats-chart-"+charts[i]);
+                        }
+                    });
+            });
         };
     };
 })();

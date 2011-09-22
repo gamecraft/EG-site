@@ -74,7 +74,7 @@
 .stats {
     margin-left: 210px;
 }
-.stats .selected {
+.stats .title {
     width: 250px;
     float: left;
     height: 50px;
@@ -93,7 +93,7 @@
     float: left;
     border: 1px solid #444;
 }
-.stats .content {
+.stats .charts {
     width: 800px;
     border: 1px solid green;
     height: 300px;

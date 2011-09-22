@@ -26,13 +26,13 @@
                             var view = $(parseTpl(tmplData, data));
                             if(before)
                                 before(view);
-                            $(target).html(view);
+                            return $(target).html(view);
                         },
                         append: function(data, target, before) {
                             var view = $(parseTpl(tmplData, data));
                             if(before)
                                 before(view);
-                            $(target).append(view);
+                            return $(target).append(view);
                         }
                     };
 
@@ -41,16 +41,16 @@
             },
             append: function(data, target, before, after) {
                 this.loadView(function(view){
-                    view.append(data, target, before);
+                    var dom = view.append(data, target, before);
                     if(after)
-                        after();
+                        after(dom);
                 });
             },
             render: function(data, target, before, after) {
                 this.loadView(function(view){
-                    view.render(data, target, before);
+                    var dom = view.render(data, target, before);
                     if(after)
-                        after();
+                        after(dom);
                 });
             }
         }

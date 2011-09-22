@@ -1,15 +1,13 @@
 (function(){
     global.modules.Teams = function(){
-        var stats = new global.modules.Stats();
         var teamsData = ["a","b", "c"];
         var randData = ["b","a", "c"];
         var teamView = null;
 
         var wireClickEvents = function(){
             $(".teams a.btn").click(function(e){
-              stats.plot("chart", e.currentTarget.innerText);
-              stats.plot("chart2", e.currentTarget.innerText);
-              stats.plot("chart3", e.currentTarget.innerText);
+               var stats = new global.modules.Stats(e.currentTarget.innerText);
+              stats.renderTo($(".stats"));
            });
         };
 
