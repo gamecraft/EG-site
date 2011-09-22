@@ -1,0 +1,110 @@
+.header {
+    width: 100%;
+    height: 100px;
+}
+.rulesBtn {
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+.rulesBtnView {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+}
+.phases {
+    float: left;
+}
+.phases .center {
+    margin-top: 25px;
+}
+.phase {
+    background-color: silver;
+    border: 1px solid #F00;
+    float: left;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+}
+.phase a {
+    text-decoration: none;
+    color: black;
+}
+.headerBtns {
+    float: right;
+    height: 100px;
+    line-height: 100px;
+}
+.headerBtns a {
+    float: right;
+    margin-right: 50px;
+}
+.teams {
+    border: 1px solid #F00;
+    width: 200px;
+    float: left;
+}
+.teams #source {
+    list-style-type: none;
+}
+.teamsProgress {
+    border: 1px solid #0F0;
+    width: 800px;    
+    float: left;
+}
+.teamProgress {
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+}
+.teamProgress .progress {
+    width: 100px;
+    background-color: #aaa;
+    border: 1px solid #000;
+
+    position: absolute;
+}
+.teamProgress .score {
+    width: 200px;
+    position: absolute;
+    margin-left: 120px;
+    
+}
+.stats {
+    margin-left: 210px;
+}
+.stats .selected {
+    width: 250px;
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid green;
+}
+.stats .tabs {
+    width: 450px;
+    float: left;
+    height: 50px;
+    line-height: 50px;
+}
+.stats .tabs .tab {
+    margin-left: 25px;
+    padding: 0px 10px 0px 10px;
+    float: left;
+    border: 1px solid #444;
+}
+.stats .content {
+    width: 800px;
+    border: 1px solid green;
+    height: 300px;
+    padding-top: 25px;
+}
+div.jqplot-target {
+    width: 200px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    font-size: 1.6em;
+    float: left;
+}
