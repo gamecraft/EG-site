@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'AmazHandFirstRegular';
+    src: url('../font/amazhand_first-webfont.eot');
+    src: url('../font/amazhand_first-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/amazhand_first-webfont.woff') format('woff'),
+         url('../font/amazhand_first-webfont.ttf') format('truetype'),
+         url('../font/amazhand_first-webfont.svg#AmazHandFirstRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'RodeoBold';
+    src: url('../font/rodeob-webfont.eot');
+    src: url('../font/rodeob-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/rodeob-webfont.woff') format('woff'),
+         url('../font/rodeob-webfont.ttf') format('truetype'),
+         url('../font/rodeob-webfont.svg#RodeoBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
