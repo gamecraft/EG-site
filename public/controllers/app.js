@@ -18,7 +18,7 @@ $(document).ready(function(){
     	global.repo('Skill').list({level:"0"},null,null,function(err, response){
     		if(response.data){
     			var skills = new global.modules.Skills(response.data);
-                skills.renderTo($(".container"));
+                skills.renderTo($(".content"));
     		}
             
     	});
@@ -27,7 +27,7 @@ $(document).ready(function(){
     	global.repo('Achievement').list({public:"yes"},null,null,function(err, response){
     		if(response.data){
     			var achs = new global.modules.Achievements(response.data);
-                achs.renderTo($(".container"));
+                achs.renderTo($(".content"));
     		}
             
     	});
