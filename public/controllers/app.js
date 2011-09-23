@@ -13,4 +13,6 @@ $(document).ready(function(){
         var phases = new global.modules.Phases(res.data);
     	phases.renderTo($(".phases"));
     });
+    
+    
 });
