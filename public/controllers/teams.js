@@ -1,5 +1,5 @@
 (function(){
-    global.modules.Teams = function(teamsData){
+    global.modules.Teams=function(teamsData){
         var teamView = null;
 
         var wireClickEvents = function(){

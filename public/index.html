@@ -35,35 +35,26 @@
 </head>
 
 <body>
+
 	<div class="header">
 		<div class="left float"></div>
 		<div class="centerPart float">
 			<div class="logo"></div>
     		<div class="phases"> <!-- Phases goes here --> </div>
     		<div class="headerBtns">
-				<a href="./rules" class="rulesBtn"><div class="rulesBtnView">Rules</div></a>	
-        		<a href="./skills" class="skillsBtn"><div class="skillsBtnView">Skills</div></a>
-        		<a href="./acievements" class="achievementsBtn"><div class="achievementsBtnView">Achievements</div></a>
+				<a href="javascript:void(0);" class="rulesBtn"><div class="rulesView">Rules</div></a>	
+        		<a href="javascript:void(0);" class="skillsBtn"><div class="skillsView">Skills</div></a>
+        		<a href="javascript:void(0);" class="achievementsBtn"><div class="achievementsView">Achievements</div></a>
+        		<a href="javascript:void(0);" class="teamsInfo"><div class="teamsInfoView">Teams Info</div></a>
   			</div>
 		</div>
 		<div class="right float"></div>
 	</div>	
 	
 	<div class="content">
-    <div class="teams">
-    </div>
-    <div class="teamsProgress">
-	<span>Отборни точки</span>
-    </div>
-    <div style="clear: both;"></div>
-    <div class="members">
-    	
-    </div>
-  </div>
-  <div style="clear: both;"></div>
-  <div class="stats">
-  </div>
-
+    
+  	</div>
+  
   <!-- JavaScript at the bottom for fast page loading -->
 
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
@@ -109,11 +100,15 @@
   <![endif]-->
 
   <script src="controllers/phases.js"></script>
+  <script src="controllers/skills.js"></script>
+  <script src="controllers/achievements.js"></script>
   <script src="controllers/teams.js"></script>
   <script src="controllers/stats.js"></script>
   <script src="controllers/teamMembers.js"></script>
   <script src="controllers/points.js"></script>
   <script src="controllers/app.js"></script>
+  <script src="controllers/homePage.js"></script>
+  <script src="controllers/rules.js"></script>
 
 </body>
 </html>

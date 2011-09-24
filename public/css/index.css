@@ -33,7 +33,7 @@ body { margin: 0px; padding: 0px; min-width: 1024px; background: url("../img/bg.
 .teams #teamsList { top: 20px; position: relative; font-family: 'RodeoBold'; font-size: 18px;}
 .teams #teamsList li { margin: 20px 0 0 15px;}
 .teams #teamsList li a { font-family: 'RodeoBold'; color: black; font-size: 18px; text-decoration: none;}
-
+.teamsInfo {display: none;}
 .members {
 	
 }
