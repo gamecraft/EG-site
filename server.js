@@ -285,6 +285,7 @@ app.get('*', function (req, res, next) {
       req.url = "/index";
   if(req.url.indexOf(".") == -1)
       req.url = req.url+".html";
+
   next();
 });
 

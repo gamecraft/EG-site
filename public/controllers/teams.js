@@ -4,7 +4,7 @@
 
         var wireClickEvents = function(){
             $(".teams a.btn").click(function(e){
-               var stats = new global.modules.Stats(e.currentTarget.innerText);
+              var stats = new global.modules.Stats(e.currentTarget.innerText);
               stats.renderTo($(".stats"));
            });
         };

@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    window.now = nowInitialize("//localhost:3000", {});
+
 	global.repo.endpoint = "http://178.79.173.17:3000";
 
     global.repo('Team').list({},null,null,function(err, response){
@@ -13,4 +15,14 @@ $(document).ready(function(){
         var phases = new global.modules.Phases(res.data);
     	phases.renderTo($(".phases"));
     });
+
+    var i = 0;
+    now.doInc = function() {
+        console.log(i++);
+    };
+
+    /*now.ready(function(){
+        // "Hello World!" will print on server
+        now.logStuff("I'm connected");
+    });*/
 });
