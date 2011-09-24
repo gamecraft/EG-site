@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    window.now = nowInitialize("//localhost:3000", {});
+    window.now = nowInitialize("//178.79.173.17:3000", {});
 
 	global.repo.endpoint = "http://178.79.173.17:3000";
 	//load the phases - header
