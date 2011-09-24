@@ -1,7 +1,7 @@
 $(document).ready(function(){
-    window.now = nowInitialize("//178.79.173.17:3000", {});
+    global.repo.endpoint = "//178.79.173.17:3000";
+    window.now = nowInitialize(global.repo.endpoint, {});
 
-	global.repo.endpoint = "http://178.79.173.17:3000";
 	//load the phases - header
 	
 	var loadHeader=function(){
