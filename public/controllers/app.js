@@ -6,7 +6,8 @@ $(document).ready(function(){
     var wireClickEvents = function(){
         $(".teams a.btn").click(function(e){
         	var stats = new global.modules.Stats(e.currentTarget.innerText);//team name
-        	stats.renderTo($(".stats"));
+        	$(".teamsProgress").html="";
+        	stats.renderTo($(".teamsProgress"));
         	loadTeamMembers(e.currentTarget._id,e.currentTarget.innerText);
        });
     };
@@ -20,10 +21,13 @@ $(document).ready(function(){
         	var callback=function(){
         		//add event listener for back button
             	$(".backBtn").click(function(e){
-            		console.log("here");
             		//remove team members
                 	$(".teams").html="";
-                	loadTeamInfo(false);
+                	$(".title").remove();
+                	$(".tabs").remove();
+                	$(".charts").remove();
+                	//$(".teamsProgress").html="";
+                	loadTeamInfo(true);
             	});
         	};
         	teamMembers.renderTo($(".teams"),callback);
@@ -48,7 +52,6 @@ $(document).ready(function(){
 			global.data.Teams=response.data;
 			var callback=function(){
 				wireClickEvents();
-				
 			};
 	        var teams = new global.modules.Teams(global.data.Teams);
 		    teams.renderTo($(".teams"),callback);
@@ -97,7 +100,8 @@ $(document).ready(function(){
     });
     
     $(".teamsInfo").click(function(){
-    	loadHomePage();
+    	$(".teamsInfo").hide();
+    	loadHomePage(true);
     });
     
 });

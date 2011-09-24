@@ -62,27 +62,31 @@ body { margin: 0px; padding: 0px; min-width: 980px; background: url("../img/bg.p
 .stats {
     margin-left: 210px;
 }
-.stats .title {
+.statsContainer{
+	margin-left: 80px;
+	margin-right: 80px;
+	}
+.teamsProgress .title {
     width: 250px;
     float: left;
     height: 50px;
     line-height: 50px;
     border: 1px solid green;
 }
-.stats .tabs {
+.teamsProgress .tabs {
     width: 450px;
     float: left;
     height: 50px;
     line-height: 50px;
 }
-.stats .tabs .tab {
+.teamsProgress .tabs .tab {
     margin-left: 25px;
     padding: 0px 10px 0px 10px;
     float: left;
     border: 1px solid #444;
 }
-.stats .charts {
-    width: 800px;
+.teamsProgress .charts {
+    /*width: 800px;*/
     border: 1px solid green;
     height: 300px;
     padding-top: 25px;
