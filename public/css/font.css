@@ -21,3 +21,15 @@
     font-style: normal;
 
 }
+
+@font-face {
+    font-family: 'UbuntuLight';
+    src: url('../font/Ubuntu-Light-webfont.eot');
+    src: url('../font/Ubuntu-Light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/Ubuntu-Light-webfont.woff') format('woff'),
+         url('../font/Ubuntu-Light-webfont.ttf') format('truetype'),
+         url('../font/Ubuntu-Light-webfont.svg#UbuntuLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

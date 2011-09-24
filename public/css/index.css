@@ -1,6 +1,6 @@
 @import url("font.css");
 body { margin: 0px; padding: 0px; min-width: 1024px; background: url("../img/bg.png");}
-.header .left, .header .right, .teams, .teamsProgress  { background: url("../img/sprite.png");}
+.header .left, .header .right, .teams, .teamsProgress, .membersCont  { background: url("../img/sprite.png");}
 
 .header { width: 95%; height: 71px; min-width: 1200px; margin: 0 auto; padding: 0 auto;}
 .header .left { width: 41px; height: 71px; background-position: 0 0;}
@@ -13,8 +13,8 @@ body { margin: 0px; padding: 0px; min-width: 1024px; background: url("../img/bg.
 .rulesBtnView { width: 100px; height: 100px; text-align: center; line-height: 100px;}
 .phases { height: 71px; position: relative; }
 
-.phase { float: left; width: 10%; position: relative; margin: 12px 5px 0 5px;}
-.phase a { text-decoration: none; color: black; font-family: 'RodeoBold';}
+.phase { float: left; position: relative; margin: 12px 5px 0 5px;}
+.phase a { text-decoration: none; color: black; font-size: 20px; font-family: 'RodeoBold';}
 .headerBtns {
     float: right;
     height: 100px;
@@ -29,7 +29,7 @@ body { margin: 0px; padding: 0px; min-width: 1024px; background: url("../img/bg.
 
 .content { width: 100%; margin-top: 115px; min-width: 1024px;}
 .teams { float: left; width: 270px; height: 416px; background-position: 0 -73px; }
-.teams span { margin: 70px 0 30px 20px; color: #222; position: relative; top: 20px; font-family: 'RodeoBold'; font-size: 30px; font-weight: normal;}
+.teams span { margin: 70px 0 30px 20px; color: #222; position: relative; top: 20px; font-family: 'RodeoBold'; font-size: 25px; font-weight: normal;}
 .teams #teamsList { top: 20px; position: relative; font-family: 'RodeoBold'; font-size: 18px;}
 .teams #teamsList li { margin: 20px 0 0 15px;}
 .teams #teamsList li a { font-family: 'RodeoBold'; color: black; font-size: 18px; text-decoration: none;}
@@ -48,12 +48,14 @@ body { margin: 0px; padding: 0px; min-width: 1024px; background: url("../img/bg.
 
 .teamProgress .progress { width: 100px;  border: 1px solid #000; position: absolute; }
 .progress { height: 29px; position: relative; left: 0px; margin-bottom: 15px; background-color: #111; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; -moz-box-shadow: 0px 1px 3px #000; -webkit-box-shadow: 0px 1px 3px #000; box-shadow: 0px 1px 3px #000; color: white; }
-.teamProgress .score {
-    width: 200px;
-    position: absolute;
-    margin-left: 120px;
-    
-}
+.teamProgressitem .progress .score { font-family: 'UbuntuLight'; color: #efefef; font-weight: normal; padding:7px 0 0 20px;}
+
+.membersCont { width: 294px; height: 432px; position: relative; top: -170px; background-position: 0 -519px;}
+.membersCont .membersHead  { position: relative; top: 50px; left: 50px;}
+.membersCont .teamName{ position: relative; left: 90px; font-size: 15px; color: red; font-family: 'RodeoBold';}
+.membersList { margin-top: 70px;}
+.membersList li { height: 40px; font-family: 'RodeoBold'; font-size: 15px;}
+
 .stats {
     margin-left: 210px;
 }
