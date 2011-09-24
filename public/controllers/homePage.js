@@ -1,9 +1,8 @@
 (function(){
 	global.modules.HomePage=function(){
-		this.renderTo=function(target){
+		this.renderTo=function(target, after){
 			global.view("/views/homePage.html")
-				.render({}, target, null, function(){
-            });	
+				.render({}, target, null, after);	
 		}
 	};
 })();

@@ -24,9 +24,9 @@ $(document).ready(function(){
 	
 	var loadHomePage=function(){
 		var homePage= new global.modules.HomePage();
-		homePage.renderTo($(".content"));
-		
-		loadTeamInfo();
+		homePage.renderTo($(".content"), function(){
+            loadTeamInfo();
+        });
 	};
 	loadHeader();
 	loadHomePage();

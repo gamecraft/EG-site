@@ -1,7 +1,5 @@
 (function(){
 	global.modules.TeamMembers= function(teamDataMembers,teamName){
-		console.log("name");
-		console.log(teamName);
 		this.renderTo= function(target){
 			
 			global.view("/views/team-members.html")
