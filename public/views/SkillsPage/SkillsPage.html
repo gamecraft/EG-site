@@ -35,42 +35,17 @@
 </head>
 
 <body>
-	<div class="header">
-		<div class="left float"></div>
-		<div class="centerPart float">
-			<div class="logo"></div>
-    		<div class="phases"> <!-- Phases goes here --> </div>
-    		<div class="headerBtns">
-				<a href="./rules" class="rulesBtn"><div class="rulesBtnView">Rules</div></a>	
-        		<a href="./skills" class="skillsBtn"><div class="skillsBtnView">Skills</div></a>
-        		<a href="./acievements" class="achievementsBtn"><div class="achievementsBtnView">Achievements</div></a>
-  			</div>
-		</div>
-		<div class="right float"></div>
-	</div>	
-	
-	<div class="content">
-    <div class="teams">
+  <div class="header">
+    <div class="skillsCont">
+        
     </div>
-    <div class="teamsProgress">
-	<span>Отборни точки</span>
-    </div>
-    <div style="clear: both;"></div>
-    <div class="members">
-    	
-    </div>
-  </div>
-  <div style="clear: both;"></div>
-  <div class="stats">
-  </div>
 
   <!-- JavaScript at the bottom for fast page loading -->
 
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
   <script>
-    var global = {};
-    global.modules = {};
   </script>
+  <script src="js/libs/module.js"></script>
   <script src="js/libs/view.js"></script>
   <script src="js/libs/json2.js"></script>
   <script src="js/libs/repo.js"></script>
@@ -82,7 +57,6 @@
   <script src="js/libs/jquery.jqplot.min.js"></script>
   <script type="text/javascript" src="js/libs/jqplot.canvasTextRenderer.min.js"></script>
   <script type="text/javascript" src="js/libs/jqplot.canvasAxisLabelRenderer.min.js"></script>
-  <script type="text/javascript" src="js/libs/now.js"></script>
   
 
 
@@ -107,13 +81,6 @@
     <script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
     <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
   <![endif]-->
-
-  <script src="controllers/phases.js"></script>
-  <script src="controllers/teams.js"></script>
-  <script src="controllers/stats.js"></script>
-  <script src="controllers/teamMembers.js"></script>
-  <script src="controllers/points.js"></script>
-  <script src="controllers/app.js"></script>
 
 </body>
 </html>

@@ -15,14 +15,4 @@ $(document).ready(function(){
         var phases = new global.modules.Phases(res.data);
     	phases.renderTo($(".phases"));
     });
-
-    var i = 0;
-    now.doInc = function() {
-        console.log(i++);
-    };
-
-    /*now.ready(function(){
-        // "Hello World!" will print on server
-        now.logStuff("I'm connected");
-    });*/
 });

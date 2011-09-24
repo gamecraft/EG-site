@@ -1,36 +1,20 @@
-.header {
-    width: 100%;
-    height: 100px;
-}
-.rulesBtn {
-    width: 100px;
-    height: 100px;
-    float: left;
-}
-.rulesBtnView {
-    width: 100px;
-    height: 100px;
-    text-align: center;
-    line-height: 100px;
-}
-.phases {
-    float: left;
-}
-.phases .center {
-    margin-top: 25px;
-}
-.phase {
-    background-color: silver;
-    border: 1px solid #F00;
-    float: left;
-    text-align: center;
-    margin: 10px;
-    padding: 10px;
-}
-.phase a {
-    text-decoration: none;
-    color: black;
-}
+@import url("font.css");
+body { margin: 0px; padding: 0px; min-width: 1024px; background: url("../img/bg.png");}
+.header .left, .header .right, .teams, .teamsProgress  { background: url("../img/sprite.png");}
+
+.header { width: 95%; height: 71px; min-width: 1200px; margin: 0 auto; padding: 0 auto;}
+.header .left { width: 41px; height: 71px; background-position: 0 0;}
+.header .centerPart { height: 71px; width: 93%; background: url("../img/repeattop.png") repeat-x;}
+.header .right { width: 41px; height: 71px; background-position: -43px 0;}
+.float { float: left;}
+.logo { float: left; width: 236px; height: 132px; background: url("../img/logo.png") no-repeat;}
+
+.rulesBtn { width: 100px; height: 100px; float: left;}
+.rulesBtnView { width: 100px; height: 100px; text-align: center; line-height: 100px;}
+.phases { height: 71px; position: relative; }
+
+.phase { float: left; width: 10%; position: relative; margin: 12px 5px 0 5px;}
+.phase a { text-decoration: none; color: black; font-family: 'RodeoBold';}
 .headerBtns {
     float: right;
     height: 100px;
@@ -40,31 +24,30 @@
     float: right;
     margin-right: 50px;
 }
-.teams {
-    border: 1px solid #F00;
-    width: 200px;
-    float: left;
+
+/* CENTER INFO */
+
+.content { width: 100%; margin-top: 115px; min-width: 1024px;}
+.teams { float: left; width: 270px; height: 416px; background-position: 0 -73px; }
+.teams span { margin: 70px 0 30px 20px; color: #222; position: relative; top: 20px; font-family: 'RodeoBold'; font-size: 30px; font-weight: normal;}
+.teams #teamsList { top: 20px; position: relative; font-family: 'RodeoBold'; font-size: 18px;}
+.teams #teamsList li { margin: 20px 0 0 15px;}
+.teams #teamsList li a { font-family: 'RodeoBold'; color: black; font-size: 18px; text-decoration: none;}
+
+.members {
+	
 }
+
 .teams #source {
     list-style-type: none;
 }
-.teamsProgress {
-    border: 1px solid #0F0;
-    width: 800px;    
-    float: left;
-}
-.teamProgress {
-    width: 100%;
-    height: 20px;
-    line-height: 20px;
-}
-.teamProgress .progress {
-    width: 100px;
-    background-color: #aaa;
-    border: 1px solid #000;
+.teamsProgress { float: right; width: 867px; height: 497px; margin: -50px auto; padding-top: 65px; right: 60px; background-position: -270px 0; position: relative; }
+.teamsProgress span { font-family: 'RodeoBold'; font-size: 18px; margin-left: 100px;}
 
-    position: absolute;
-}
+.teamProgressitem { margin: 30px 0 0 100px;}
+
+.teamProgress .progress { width: 100px;  border: 1px solid #000; position: absolute; }
+.progress { height: 29px; position: relative; left: 0px; margin-bottom: 15px; background-color: #111; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; -moz-box-shadow: 0px 1px 3px #000; -webkit-box-shadow: 0px 1px 3px #000; box-shadow: 0px 1px 3px #000; color: white; }
 .teamProgress .score {
     width: 200px;
     position: absolute;
