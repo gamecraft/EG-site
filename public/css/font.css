@@ -33,3 +33,15 @@
     font-style: normal;
 
 }
+
+@font-face {
+    font-family: 'RodeoLight';
+    src: url('../font/rodeol-webfont.eot');
+    src: url('../font/rodeol-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/rodeol-webfont.woff') format('woff'),
+         url('../font/rodeol-webfont.ttf') format('truetype'),
+         url('../font/rodeol-webfont.svg#RodeoNormal') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

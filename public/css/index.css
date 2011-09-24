@@ -1,42 +1,41 @@
 @import url("font.css");
-body { margin: 0px; padding: 0px; min-width: 1024px; background: url("../img/bg.png");}
-.header .left, .header .right, .teams, .teamsProgress, .membersCont  { background: url("../img/sprite.png");}
+* { margin: 0; padding: 0;}
+html { overflow: hidden; margin: 0; padding: 0;}
+body { margin: 0px; padding: 0px; min-width: 980px; background: url("../img/bg.png"); overflow: hidden; }
+.teams, .teamsProgress, .membersCont, .sameTop, .sameBottom { background: url("../img/sprite.png");}
 
-.header { width: 95%; height: 71px; min-width: 1200px; margin: 0 auto; padding: 0 auto;}
-.header .left { width: 41px; height: 71px; background-position: 0 0;}
-.header .centerPart { height: 71px; width: 93%; background: url("../img/repeattop.png") repeat-x;}
-.header .right { width: 41px; height: 71px; background-position: -43px 0;}
+.header { height: 71px; width: 100%; background: url("../img/repeattop.png") repeat-x; min-width: 800px; margin: 0 auto; padding: 0 auto;}
 .float { float: left;}
-.logo { float: left; width: 236px; height: 132px; background: url("../img/logo.png") no-repeat;}
+.logo { float: left; width: 236px; height: 132px; margin-left: 30px; background: url("../img/logo.png") no-repeat;}
 
-.rulesBtn { width: 100px; height: 100px; float: left;}
-.rulesBtnView { width: 100px; height: 100px; text-align: center; line-height: 100px;}
-.phases { height: 71px; position: relative; }
+/*БУТОНИ*/
+.buttons { background: #333; padding: 5px 10px 5px 10px; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; -webkit-box-shadow: 0px 1px 3px #000; -moz-box-shadow: 0px 1px 3px #000; box-shadow: 0px 1px 3px #000;}
+.buttons { color: white; text-decoration: none; font-family: 'UbuntuLight';}
+.buttons:hover { color: white; opacity: 0.9;}
+.rulesBtn { float: left;}
 
-.phase { float: left; position: relative; margin: 12px 5px 0 5px;}
-.phase a { text-decoration: none; color: black; font-size: 20px; font-family: 'RodeoBold';}
-.headerBtns {
-    float: right;
-    height: 100px;
-    line-height: 100px;
-}
+.rulesBtnView { text-align: center; }
+.phases { width: 800px; height: 50px; left: 20px; float: left; position: relative; overflow: hidden; }
+
+.phase { float: left; position: relative; margin: 13px 10px 0 10px;}
+.phase a { text-decoration: none; color: black; font-size: 18px; font-family: 'RodeoBold';}
+.headerBtns { float: right; margin-top: 45px;}
 .headerBtns a {
     float: right;
     margin-right: 50px;
 }
+.timer { float: right; margin-top: 13px; margin-right: 40px; font-size: 19px; color: #444; font-family: 'RodeoBold';}
 
 /* CENTER INFO */
 
-.content { width: 100%; margin-top: 115px; min-width: 1024px;}
+.content { width: 100%; margin-top: 115px; min-width: 980px;}
 .teams { float: left; width: 270px; height: 416px; background-position: 0 -73px; }
 .teams span { margin: 70px 0 30px 20px; color: #222; position: relative; top: 20px; font-family: 'RodeoBold'; font-size: 25px; font-weight: normal;}
-.teams #teamsList { top: 20px; position: relative; font-family: 'RodeoBold'; font-size: 18px;}
+.teams #teamsList { top: 20px; left: 33px; position: relative; font-family: 'RodeoBold'; font-size: 18px;}
 .teams #teamsList li { margin: 20px 0 0 15px;}
 .teams #teamsList li a { font-family: 'RodeoBold'; color: black; font-size: 18px; text-decoration: none;}
 .teamsInfo {display: none;}
-.members {
-	
-}
+.members {}
 
 .teams #source {
     list-style-type: none;
@@ -50,7 +49,7 @@ body { margin: 0px; padding: 0px; min-width: 1024px; background: url("../img/bg.
 .progress { height: 29px; position: relative; left: 0px; margin-bottom: 15px; background-color: #111; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; -moz-box-shadow: 0px 1px 3px #000; -webkit-box-shadow: 0px 1px 3px #000; box-shadow: 0px 1px 3px #000; color: white; }
 .teamProgressitem .progress .score { font-family: 'UbuntuLight'; color: #efefef; font-weight: normal; padding:7px 0 0 20px;}
 
-.membersCont { width: 294px; height: 432px; position: relative; top: -170px; background-position: 0 -519px;}
+.membersCont { width: 294px; height: 432px; position: relative; top: -170px; background-position: 0 -557px;}
 .membersCont .membersHead  { position: relative; top: 50px; left: 50px;}
 .membersCont .teamName{ position: relative; left: 90px; font-size: 15px; color: red; font-family: 'RodeoBold';}
 .membersList { margin-top: 70px;}
@@ -93,3 +92,14 @@ div.jqplot-target {
     font-size: 1.6em;
     float: left;
 }
+
+/*SAME BACKGROUND PAGES*/
+.sameCont { width: 784px; margin: 0px auto; }
+.sameTop {  height: 45px; background-position: -307px -596px;}
+.sameCenter { padding-left: 50px; background: url("../img/bgrepeat.png")  repeat-y; }
+.sameBottom { height: 47px; background-position: -307px -648px;}
+.sameCenter h2 { font-family: 'RodeoBold'; font-size: 18px; font-weight: normal;}
+
+/* SAME FONT SETUP PAGES*/
+.achList li, .skillsList li { font-family: 'RodeoLight'; margin-left: 18px;}
+
