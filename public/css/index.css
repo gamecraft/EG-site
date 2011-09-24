@@ -32,6 +32,9 @@ body { margin: 0px; padding: 0px; min-width: 980px; background: url("../img/bg.p
 .teams { float: left; width: 270px; height: 416px; background-position: 0 -73px; }
 .teams span { margin: 70px 0 30px 20px; color: #222; position: relative; top: 20px; font-family: 'RodeoBold'; font-size: 22px; font-weight: normal;}
 .teams #teamsList { top: 20px; left: 33px; position: relative; font-family: 'RodeoBold'; font-size: 16px;}
+.teams .teamsCont  { margin: 70px 0 30px 20px; color: #222; position: relative; top: 20px; font-family: 'RodeoBold'; font-size: 25px; font-weight: normal;}
+.teams #teamsList { top: 20px; position: relative; font-family: 'RodeoBold'; font-size: 18px;}
+
 .teams #teamsList li { margin: 20px 0 0 15px;}
 .teams #teamsList li a { font-family: 'RodeoBold'; color: black; font-size: 16px; text-decoration: none;}
 .teamsInfo {display: none;}
@@ -49,11 +52,14 @@ body { margin: 0px; padding: 0px; min-width: 980px; background: url("../img/bg.p
 .progress { height: 29px; position: relative; left: 0px; margin-bottom: 15px; background-color: #111; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; -moz-box-shadow: 0px 1px 3px #000; -webkit-box-shadow: 0px 1px 3px #000; box-shadow: 0px 1px 3px #000; color: white; }
 .teamProgressitem .progress .score { font-family: 'UbuntuLight'; color: #efefef; font-weight: normal; padding:7px 0 0 20px;}
 
-.membersCont { width: 294px; height: 432px; position: relative; top: -170px; background-position: 0 -557px;}
-.membersCont .membersHead  { position: relative; top: 50px; left: 50px;}
-.membersCont .teamName{ position: relative; left: 90px; font-size: 15px; color: red; font-family: 'RodeoBold';}
-.membersList { margin-top: 70px;}
-.membersList li { height: 40px; font-family: 'RodeoBold'; font-size: 15px;}
+
+.membersCont { float: left; width: 270px; height: 416px; background-position: 0 -73px;}
+.membersCont .backBtn{position:relative; right: 0px;float:right; padding-right: 30px; padding-top: 30px;}
+/*.membersCont .membersHead  { position: relative; top: 20px; left: 5px;}*/
+.membersCont .teamName{ margin: 70px 0 30px 20px; color: #222; position: relative; top: 20px; font-family: 'RodeoBold'; font-size: 25px; font-weight: normal;}
+.membersList { top: 20px; position: relative; font-family: 'RodeoBold'; font-size: 18px;}
+.membersList li { margin: 20px 0 0 15px;}
+
 
 .stats {
     margin-left: 210px;

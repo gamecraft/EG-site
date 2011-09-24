@@ -3,7 +3,34 @@ $(document).ready(function(){
     window.now = nowInitialize(global.repo.endpoint, {});
 
 	//load the phases - header
-	
+    var wireClickEvents = function(){
+        $(".teams a.btn").click(function(e){
+        	var stats = new global.modules.Stats(e.currentTarget.innerText);//team name
+        	stats.renderTo($(".stats"));
+        	loadTeamMembers(e.currentTarget._id,e.currentTarget.innerText);
+       });
+    };
+    var loadTeamMembers=function(teamId,teamName){
+    	//get team members
+    	global.repo("TeamMember").list({teamId:teamId},null,null,function(err, response) {
+        	//create teamMembersView
+        	var teamMembers= new global.modules.TeamMembers(response.data,teamName);
+        	//remove teams
+        	$(".teams").html="";
+        	var callback=function(){
+        		//add event listener for back button
+            	$(".backBtn").click(function(e){
+            		console.log("here");
+            		//remove team members
+                	$(".teams").html="";
+                	loadTeamInfo(false);
+            	});
+        	};
+        	teamMembers.renderTo($(".teams"),callback);
+        	
+        	
+		 });
+    };
 	var loadHeader=function(){
 		global.repo("Phase").list({}, null, null, function(err, res) {
 	        var phases = new global.modules.Phases(res.data);
@@ -12,24 +39,35 @@ $(document).ready(function(){
 	};
 	
 	
-	var loadTeamInfo=function(){
-		global.repo('Team').list({},null,null,function(err, response){
-	        var teams = new global.modules.Teams(response.data);
-		    teams.renderTo($(".teams"));
-	       
-		    var points = new global.modules.Points(response.data);
+	var loadTeamPoints=function(data){
+		 var points = new global.modules.Points(data);
 		    points.renderTo($(".teamsProgress"));
+	};
+	var loadTeamInfo=function(withPoints){
+		global.repo('Team').list({},null,null,function(err, response){
+			global.data.Teams=response.data;
+			var callback=function(){
+				wireClickEvents();
+				
+			};
+	        var teams = new global.modules.Teams(global.data.Teams);
+		    teams.renderTo($(".teams"),callback);
+	       if(withPoints==true){
+	    	   loadTeamPoints(global.data.Teams);
+	       }
+		    
+		   
 	    });
 	};
 	
-	var loadHomePage=function(){
+	var loadHomePage=function(withPoints){
 		var homePage= new global.modules.HomePage();
 		homePage.renderTo($(".content"), function(){
-            loadTeamInfo();
+            loadTeamInfo(withPoints);
         });
 	};
 	loadHeader();
-	loadHomePage();
+	loadHomePage(true);
     
     $(".skillsBtn").click(function(){
     	global.repo('Skill').list({level:"0"},null,null,function(err, response){

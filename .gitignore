@@ -1,3 +1,5 @@
 node_modules
 server-error.log
 server-output.log
+
+.DS_Store
