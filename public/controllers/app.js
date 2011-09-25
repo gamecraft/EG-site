@@ -36,7 +36,7 @@ $(document).ready(function(){
 		 });
     };
 	var loadHeader=function(){
-		global.repo("Phase").list({}, null, null, function(err, res) {
+		global.repo("Phase").list({finished: false}, null, null, function(err, res) {
 	        var phases = new global.modules.Phases(res.data);
 	    	phases.renderTo($(".phases"));
 	    });

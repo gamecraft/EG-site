@@ -18,6 +18,7 @@ body { margin: 0px; padding: 0px; min-width: 980px; background: url("../img/bg.p
 .phases { width: 800px; height: 50px; left: 20px; float: left; position: relative; overflow: hidden; }
 
 .phase { float: left; position: relative; margin: 13px 10px 0 10px;}
+.activePhase { border: 1px solid red; }
 .phase a { text-decoration: none; color: black; font-size: 18px; font-family: 'RodeoBold';}
 .headerBtns { float: right; margin-top: 45px;}
 .headerBtns a {

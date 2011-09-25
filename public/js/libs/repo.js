@@ -1,27 +1,14 @@
 (function(){
     global.repo = function(repoName) {
         return {
-            list: function(pattern, limit, skip, callback) {
-                var params = [];
-                var url = null;
-                if(typeof pattern == "object") {
-                    url = global.repo.endpoint+"/"+repoName;
-                    params.push("spec="+encodeURIComponent(JSON.stringify(pattern)));
-                }
-                else
-                if(typeof pattern == "string")
-                    url = global.repo.endpoint+"/"+repoName+"/"+pattern;
+            get: function(url, params, callback) {
+                var query = "";
+                if(params != null && params.length != 0)
+                    query = "?"+params.join("&");
 
-                if(limit != null)
-                    params.push("limit="+limit);
-                if(skip != null)
-                    params.push("skip="+skip);
-                if(params.length)
-                    url += "?"+params.join("&");
-                    
                 $.ajax({
                     type: "GET",
-                    url: url,
+                    url: global.repo.endpoint+"/"+repoName+url+query,
                     dataType: "json",
                     error: function(ajax, statusCode, errorMsg){
                         callback(new Error(errorMsg+" [code]:"+statusCode));
@@ -30,6 +17,24 @@
                         callback(null, data);
                     }
                  });
+            },
+            list: function(pattern, limit, skip, callback) {
+                var params = [];
+
+                if(limit != null)
+                    params.push("limit="+limit);
+                if(skip != null)
+                    params.push("skip="+skip);
+                
+                if(typeof pattern == "object") {
+                    url = "";
+                    params.push("spec="+encodeURIComponent(JSON.stringify(pattern)));
+                }
+                else
+                if(typeof pattern == "string")
+                    url = "/"+pattern;
+                    
+                this.get(url, params, callback);
             },
             create: function(data, callback) {
                 var url = global.repo.endpoint+"/"+repoName;
