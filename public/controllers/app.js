@@ -5,7 +5,7 @@ $(document).ready(function(){
 	//load the phases - header
     var wireClickEvents = function(){
         $(".teams a.btn").click(function(e){
-        	var stats = new global.modules.Stats(e.currentTarget.innerText);//team name
+        	var stats = new global.modules.Stats(e.currentTarget.innerText,$(".teamsProgress"));//team name
         	$(".teamsProgress").html="";
         	stats.renderTo($(".teamsProgress"));
         	loadTeamMembers(e.currentTarget._id,e.currentTarget.innerText);
