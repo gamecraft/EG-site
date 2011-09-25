@@ -27,7 +27,14 @@
         	console.log(allTeams);
         	next(allTeams);
     	};
-    	
+    	var loadRealData = function(next) {
+    		var allTeams=[];
+    		global.repo("Team").list({},null,null,function(err, response) {
+    			allTeams=response.data;
+    			next(allTeams);
+    		});
+        	
+    	};
     	var createLineChartData=function(allTeams, next){//totalPoints per phase
     		
         	var chartLines=[];
@@ -186,7 +193,7 @@
             target.html("");
 
             global.view("/views/stats.html").render({title: teamName}, target, null, function(stats){
-                loadData(function(allTeams){
+                loadRealData(function(allTeams){
                 	createLineChartData(allTeams, function(chartLines, chartSeries){
                 		plotLineChart("lineChart1Container", "Отборни точки", chartLines, chartSeries, "Отборни точки");
                 	});
