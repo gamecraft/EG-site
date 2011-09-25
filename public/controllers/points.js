@@ -25,8 +25,7 @@
         	return b.totalPoints - a.totalPoints;
         };
         this.renderTo = function(target) {
-        	global.view("/views/points.html")
-            .render({}, target, null, function(){
+        	
             	
             	 global.view("/views/points-item.html")
                  	.loadView(function(view){
@@ -40,7 +39,7 @@
 	                     	
 
                   });
-            });
+      
             
         };
     };
