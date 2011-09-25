@@ -10,6 +10,8 @@ $(document).ready(function(){
                     loadTeamInfo(true); 
             break;
             case "phase.finished.changed":
+                if(currentPage == "") 
+                    loadTeamInfo(true); 
             case "phase.active.changed":
                 loadHeader();
             break;
