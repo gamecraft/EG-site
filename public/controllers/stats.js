@@ -24,7 +24,6 @@
             	}
         		allTeams.push(team);
         	}
-        	console.log(allTeams);
         	next(allTeams);
     	};
     	var loadRealData = function(next) {
@@ -52,31 +51,39 @@
         			teamLine.push([phaseIndex+1, team.finishedPhases[phaseIndex].totalPoints]);
         		}
         		chartLines.push(teamLine);
-        		console.log("lines");
-        		console.log(chartLines);
         	}
         	var series=[ 
         	          {
         	            // Change our line width and use a diamond shaped marker.
         	            lineWidth:2, 
         	            markerOptions: { style:'dimaond' },
-        	            isMinorTick:true
+        	            label:allTeams[0].name
         	          }, 
         	          {
         	            // Don't show a line, just show markers.
         	            // Make the markers 7 pixels with an 'x' style
         	            showLine:false, 
-        	            markerOptions: { size: 7, style:"x" }
+        	            markerOptions: { size: 7, style:"x" },
+        	            label:allTeams[1].name
         	          },
         	          { 
         	            // Use (open) circlular markers.
-        	            markerOptions: { style:"circle" }
+        	            markerOptions: { style:"circle" },
+        	            label:allTeams[2].name
         	          }, 
         	          {
         	            // Use a thicker, 5 pixel line and 10 pixel
         	            // filled square markers.
         	            lineWidth:5, 
-        	            markerOptions: { style:"filledSquare", size:10 }
+        	            markerOptions: { style:"filledSquare", size:10 },
+        	            label:allTeams[3].name
+        	          }, 
+        	          {
+        	            // Use a thicker, 5 pixel line and 10 pixel
+        	            // filled o markers.
+        	            lineWidth:5, 
+        	            markerOptions: { style:"o", size:10 },
+        	            label:allTeams[4].name
         	          }
         	      ]
         	next(chartLines, series);
@@ -114,7 +121,7 @@
         	next(line);
     	};
     	
-    	var plotLineChart = function(target, title, chartLines, chartSeries,yaxesLabel) {
+    	var plotLineChart = function(target, title, chartLines, chartSeries,yaxesLabel,showLegend) {
     		$("#"+target).html("");
             $.jqplot(target, chartLines, 
                 { 
@@ -144,14 +151,14 @@
       		        show: false
       		      }
             	
-      		    }}
+      		    },
+      		    legend: { show:showLegend, location: 'e' }
+               }
              ); 
          };
   
     	
     	var plotBarChart = function(target, title, chartLines){
-    		console.log("lines");
-    		console.log(chartLines);
     		
     		var plot1 = $.jqplot(target, [chartLines], {
     		    title: title,
@@ -195,10 +202,10 @@
             global.view("/views/stats.html").render({title: teamName}, target, null, function(stats){
                 loadRealData(function(allTeams){
                 	createLineChartData(allTeams, function(chartLines, chartSeries){
-                		plotLineChart("lineChart1Container", "Отборни точки", chartLines, chartSeries, "Отборни точки");
+                		plotLineChart("lineChart1Container", "Отборни точки", chartLines, chartSeries, "Отборни точки",true);
                 	});
                 	createLineChart2Data(allTeams, function(chartLines, chartSeries){
-                		plotLineChart("lineChart2Container", "Отборни точки от журито", chartLines, chartSeries,"Отборни точки от журито");
+                		plotLineChart("lineChart2Container", "Отборни точки от журито", chartLines, chartSeries,"Отборни точки от журито",false);
                 	});
                 	createBarChartData(allTeams,function(chartlines){
                 		plotBarChart("barChart1Container", "Общо класиране",chartlines);

@@ -39,18 +39,36 @@ body { margin: 0px; padding: 0px; min-width: 980px; background: url("../img/bg.p
 	margin-right: 20px;
 	
 }
+
+#barChart1Container .jqplot-point-label {
+	margin-left: 20px;
+	margin-right: 20px;
+  	/*border: 1.5px solid #aaaaaa;*/
+  	padding: 1px 3px;
+  	background-color: #eeccdd;
+}
+
 div.jqplot-title {
 	font-size:0.8em;
 	padding-bottom: 10px;	
 	margin-bottom: 20px;
+	
 }
-#barChart1Container .jqplot-point-label {
-	margin-left: 20px;
-	margin-right: 20px;
-  	border: 1.5px solid #aaaaaa;
-  	padding: 1px 3px;
-  	background-color: #eeccdd;
+table.jqplot-table-legend{
+	padding-top: 50px;	
+	top:100px;
+	left:160px;
+	margin-top:280px;
+	
 }
+table.jqplot-table-legend tr{
+	float:left;
+}
+table.jqplot-table-legend, table.jqplot-cursor-legend {
+	background-color: transparent;
+	border: none;	
+}
+
 .content { width: 100%; margin-top: 115px; min-width: 980px;}
 .teams { float: left; width: 270px; height: 416px; background-position: 0 -73px; }
 .teams .teamsCont  { margin: 70px 0 30px 20px; color: #222; position: relative; top: 20px; font-family: 'RodeoBold'; font-size: 25px; font-weight: normal;}
@@ -110,7 +128,7 @@ div.jqplot-title {
 }
 .teamsProgress .charts {
     /*width: 800px;*/
-    border: 1px solid green;
+    /*border: 1px solid green;*/
     height: 300px;
     padding-top: 25px;
 }
