@@ -1,5 +1,5 @@
 (function(){
-    global.modules.Stats = function(target){
+    global.modules.Stats = function(){
     	var loadData = function(next) {
     		//generating dummy data
         	var phasesCount=8;
@@ -121,7 +121,7 @@
     	};
     	
     	var plotLineChart = function(target, title, chartLines, chartSeries,yaxesLabel,showLegend) {
-    		$("#"+target).html("");
+    		//$("#"+target).html("");
             $.jqplot(target, chartLines, 
                 { 
                   title:title, 
@@ -196,24 +196,25 @@
         this.renderTo = function(target, callback) {
             var plotcharts = ["Отборни точки", "Отборни точки от журито"];
             var barcharts=["Общо класиране"];//sum of skill points for every team
-            target.html("");
-
-            global.view("/views/stats.html").render({title: ""}, target, null, function(stats){
-                loadRealData(function(allTeams){
-                	createLineChartData(allTeams, function(chartLines, chartSeries){
-                		plotLineChart("lineChart1Container", "Отборни точки", chartLines, chartSeries, "Отборни точки",true);
-                	});
-                	createLineChart2Data(allTeams, function(chartLines, chartSeries){
-                		plotLineChart("lineChart2Container", "Отборни точки от журито", chartLines, chartSeries,"Отборни точки от журито",false);
-                	});
-                	createBarChartData(allTeams,function(chartlines){
-                		plotBarChart("barChart1Container", "Общо класиране",chartlines);
-                	});
-                });
-                $(".close", stats).click(function(){
-                    target.html("");
-                });
-            });
+            
+		    global.view("/views/stats.html").render({title: ""}, target, null, function(stats){
+               loadRealData(function(allTeams){
+               	createLineChartData(allTeams, function(chartLines, chartSeries){
+               		plotLineChart("lineChart1Container", "Отборни точки", chartLines, chartSeries, "Отборни точки",true);
+               	});
+               	createLineChart2Data(allTeams, function(chartLines, chartSeries){
+               		plotLineChart("lineChart2Container", "Отборни точки от журито", chartLines, chartSeries,"Отборни точки от журито",false);
+               	});
+               	createBarChartData(allTeams,function(chartlines){
+               		plotBarChart("barChart1Container", "Общо класиране",chartlines);
+               	});
+           });
+           $(".close", stats).click(function(){
+               target.html("");
+               });
+           });
+   
+         
         };
     
 };

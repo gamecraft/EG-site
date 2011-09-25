@@ -32,9 +32,8 @@
                     };
                     
                     var loadStatistics=function(){
-                    	var stats = new global.modules.Stats($(".teamsProgress"));//team name
-                    	$(".teamsProgress").html="";
-                    	stats.renderTo($(".teamsProgress"));
+                    	var stats = new global.modules.Stats($(".dest"));//team name
+                    	stats.renderTo($(".dest"));
                     };
                     var loadTeamMembers=function(teamId,teamName){
                     	//get team members
@@ -71,8 +70,9 @@
 
 
                     var loadTeamPoints=function(data){
+                    	
 	                     var points = new global.modules.Points(data);
-	                        points.renderTo($(".teamsProgress"));
+	                        points.renderTo($(".dest"));
                     };
                     var compareTotals = function(a, b) {
                     	return b.totalPoints - a.totalPoints;
@@ -103,9 +103,10 @@
 		                    var addEventListeners=function(){
 			                    $(".pointsBtn").click(function(){
 				                    loadTeamPoints(global.data.Teams);
+				                    
 			                    });
 			                    $(".statisticsBtn").click(function(){
-				                    loadStatistics
+				                    loadStatistics();
 			                    });
 			
 		                    };

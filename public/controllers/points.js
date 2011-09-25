@@ -10,7 +10,6 @@
         	progress=500*progress/100;
         	if(progress<=0||undefined)
         		progress=1;
-        	console.log("progress"+progress);
         	return progress;
         };
         var getMaxPoints=function(teamsData){
@@ -26,7 +25,7 @@
         };
         this.renderTo = function(target) {
         	
-            	
+            	$(target).html("");
             	 global.view("/views/points-item.html")
                  	.loadView(function(view){
 	                 	pointsView = view;
