@@ -30,7 +30,21 @@ body { margin: 0px; padding: 0px; min-width: 980px; background: url("../img/bg.p
 .timer { float: right; margin-top: 13px; margin-right: 40px; font-size: 19px; color: #444; font-family: 'RodeoBold';}
 
 /* CENTER INFO */
-
+#lineChart1Container {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+#lineChart2Container {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+#barChart1Container .jqplot-point-label {
+	margin-left: 20px;
+	margin-right: 20px;
+  	border: 1.5px solid #aaaaaa;
+  	padding: 1px 3px;
+  	background-color: #eeccdd;
+}
 .content { width: 100%; margin-top: 115px; min-width: 980px;}
 .teams { float: left; width: 270px; height: 416px; background-position: 0 -73px; }
 .teams .teamsCont  { margin: 70px 0 30px 20px; color: #222; position: relative; top: 20px; font-family: 'RodeoBold'; font-size: 25px; font-weight: normal;}
