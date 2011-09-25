@@ -49,9 +49,24 @@
                                 	$(".teams").html="";
                                 	$(".title").remove();
                                 	$(".tabs").remove();
-                                	$(".charts").remove();
-                                	//$(".teamsProgress").html="";
                                 	loadTeamInfo(false);
+                            	});
+                            	
+                            	$(".memberBtn").click(function(e){
+                            		var selectedMemberName=e.currentTarget.innerText;
+                            		//get the right teamMember
+                            		var members=response.data;
+                            		for(var i=0;i<members.length;i++){
+                            			console.log(members[i].name);
+                            			if(members[i].name==selectedMemberName){
+                            				var memberInfo= new global.modules.MemberInfo(members[i]);
+                            				memberInfo.renderTo($(".dest"), function(){
+                            					console.log("done rendering member info");
+                            				})
+                            				break;
+                            			}
+                            		}
+                            		
                             	});
                         	};
                         	teamMembers.renderTo($(".teams"),callback);
