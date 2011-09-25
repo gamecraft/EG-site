@@ -63,9 +63,12 @@ $(document).ready(function(){
 		 var points = new global.modules.Points(data);
 		    points.renderTo($(".teamsProgress"));
 	};
+	var compareTotals = function(a, b) {
+    	return b.totalPoints - a.totalPoints;
+    };
 	var loadTeamInfo=function(withPoints){
 		global.repo('Team').list({},null,null,function(err, response){
-			global.data.Teams=response.data;
+			global.data.Teams=response.data.sort(compareTotals);
 			var callback=function(){
 				wireClickEvents();
 			};
