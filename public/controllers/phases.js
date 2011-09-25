@@ -76,6 +76,10 @@
                         });
                 });
         }
+        
+        this.destroy = function(){
+            clearCurrentPhase();
+        }
     }
 
 })();

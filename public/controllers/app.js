@@ -50,9 +50,11 @@ $(document).ready(function(){
 		 });
     };
 	var loadHeader=function(){
+	    if(global.ui.phases)
+	        global.ui.phases.destroy();
 		global.repo("Phase").list({finished: false}, null, null, function(err, res) {
-	        var phases = new global.modules.Phases(res.data);
-	    	phases.renderTo($(".phases"));
+	        global.ui.phases = new global.modules.Phases(res.data);
+	    	global.ui.phases.renderTo($(".phases"));
 	    });
 	};
 	
