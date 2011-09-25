@@ -12,6 +12,8 @@ html { overflow: hidden; margin: 0; padding: 0;}
 .buttons { background: #333; padding: 5px 10px 5px 10px; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; -webkit-box-shadow: 0px 1px 3px #000; -moz-box-shadow: 0px 1px 3px #000; box-shadow: 0px 1px 3px #000;}
 .buttons { color: white; text-decoration: none; font-family: 'UbuntuLight';}
 .buttons:hover { color: white; opacity: 0.9;}
+.pointsBtn {float:left; cursor: pointer;}
+.statisticsBtn {cursor: pointer;}
 
 .rulesBtnView { text-align: center; }
 .phases { width: 800px; height: 50px; left: 20px; float: left; position: relative; overflow: hidden; }

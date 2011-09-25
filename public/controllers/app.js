@@ -22,11 +22,15 @@ $(document).ready(function(){
 	//load the phases - header
     var wireClickEvents = function(){
         $(".teams a.btn").click(function(e){
-        	var stats = new global.modules.Stats(e.currentTarget.innerText,$(".teamsProgress"));//team name
-        	$(".teamsProgress").html="";
-        	stats.renderTo($(".teamsProgress"));
+        	//loadStatistics();
         	loadTeamMembers(e.currentTarget._id,e.currentTarget.innerText);
        });
+    };
+    
+    var loadStatistics=function(){
+    	var stats = new global.modules.Stats($(".teamsProgress"));//team name
+    	$(".teamsProgress").html="";
+    	stats.renderTo($(".teamsProgress"));
     };
     var loadTeamMembers=function(teamId,teamName){
     	//get team members
@@ -44,7 +48,7 @@ $(document).ready(function(){
                 	$(".tabs").remove();
                 	$(".charts").remove();
                 	//$(".teamsProgress").html="";
-                	loadTeamInfo(true);
+                	loadTeamInfo(false);
             	});
         	};
         	teamMembers.renderTo($(".teams"),callback);
@@ -69,11 +73,13 @@ $(document).ready(function(){
 	var compareTotals = function(a, b) {
     	return b.totalPoints - a.totalPoints;
     };
-	var loadTeamInfo=function(withPoints){
+	var loadTeamInfo=function(withPoints,next){
 		global.repo('Team').list({},null,null,function(err, response){
 			global.data.Teams=response.data.sort(compareTotals);
 			var callback=function(){
 				wireClickEvents();
+				if(next)
+					next();
 			};
 	        var teams = new global.modules.Teams(global.data.Teams);
 		    teams.renderTo($(".teams"),callback);
@@ -89,7 +95,17 @@ $(document).ready(function(){
 	    currentPage = "";
 		var homePage= new global.modules.HomePage();
 		homePage.renderTo($(".content"), function(){
-            loadTeamInfo(withPoints);
+			//add event listeners to statistics and totalPoints btn clicking
+			var addEventListeners=function(){
+				$(".pointsBtn").click(function(){
+					loadTeamPoints(global.data.Teams);
+				});
+				$(".statisticsBtn").click(function(){
+					loadStatistics
+				});
+				
+			};
+            loadTeamInfo(withPoints,addEventListeners);
         });
 	};
 	loadHeader();
