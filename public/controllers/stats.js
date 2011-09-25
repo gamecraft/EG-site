@@ -1,5 +1,5 @@
 (function(){
-    global.modules.Stats = function(teamName,target){
+    global.modules.Stats = function(target){
     	var loadData = function(next) {
     		//generating dummy data
         	var phasesCount=8;
@@ -198,7 +198,7 @@
             var barcharts=["Общо класиране"];//sum of skill points for every team
             target.html("");
 
-            global.view("/views/stats.html").render({title: teamName}, target, null, function(stats){
+            global.view("/views/stats.html").render({title: ""}, target, null, function(stats){
                 loadRealData(function(allTeams){
                 	createLineChartData(allTeams, function(chartLines, chartSeries){
                 		plotLineChart("lineChart1Container", "Отборни точки", chartLines, chartSeries, "Отборни точки",true);
