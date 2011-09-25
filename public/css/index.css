@@ -8,32 +8,75 @@ body { margin: 0px; padding: 0px; min-width: 980px; background: url("../img/bg.p
 .float { float: left;}
 .logo { float: left; width: 236px; height: 132px; margin-left: 30px; background: url("../img/logo.png") no-repeat;}
 
-/*БУТОНИ*/
+/* BUTTONS */
 .buttons { background: #333; padding: 5px 10px 5px 10px; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; -webkit-box-shadow: 0px 1px 3px #000; -moz-box-shadow: 0px 1px 3px #000; box-shadow: 0px 1px 3px #000;}
 .buttons { color: white; text-decoration: none; font-family: 'UbuntuLight';}
 .buttons:hover { color: white; opacity: 0.9;}
-.rulesBtn { float: left;}
 
 .rulesBtnView { text-align: center; }
 .phases { width: 800px; height: 50px; left: 20px; float: left; position: relative; overflow: hidden; }
 
 .phase { float: left; position: relative; margin: 13px 10px 0 10px;}
+.activePhase { border: 1px solid red; }
 .phase a { text-decoration: none; color: black; font-size: 18px; font-family: 'RodeoBold';}
 .headerBtns { float: right; margin-top: 45px;}
 .headerBtns a {
     float: right;
     margin-right: 50px;
 }
+.rulesBtn { }
+.teamsInfo { }
+
 .timer { float: right; margin-top: 13px; margin-right: 40px; font-size: 19px; color: #444; font-family: 'RodeoBold';}
 
 /* CENTER INFO */
+#lineChart1Container {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+#lineChart2Container {
+	margin-left: 20px;
+	margin-right: 20px;
+	
+}
+
+#barChart1Container .jqplot-point-label {
+	margin-left: 20px;
+	margin-right: 20px;
+  	/*border: 1.5px solid #aaaaaa;*/
+  	padding: 1px 3px;
+  	background-color: #eeccdd;
+}
+
+div.jqplot-title {
+	font-size:0.8em;
+	padding-bottom: 10px;	
+	margin-bottom: 20px;
+	
+}
+table.jqplot-table-legend{
+	padding-top: 50px;	
+	top:100px;
+	left:160px;
+	margin-top:280px;
+	
+}
+table.jqplot-table-legend tr{
+	float:left;
+}
+table.jqplot-table-legend, table.jqplot-cursor-legend {
+	background-color: transparent;
+	border: none;	
+}
 
 .content { width: 100%; margin-top: 115px; min-width: 980px;}
 .teams { float: left; width: 270px; height: 416px; background-position: 0 -73px; }
+.teams .teamsCont  { margin: 70px 0 30px 20px; color: #222; position: relative; top: 20px; font-family: 'RodeoBold'; font-size: 25px; font-weight: normal;}
+.teams #teamsList { top: 20px; position: relative; font-family: 'RodeoBold'; font-size: 18px;}
 
 .teams #teamsList li { margin: 20px 0 0 15px;}
-.teams #teamsList li a { font-family: 'RodeoBold'; color: black; font-size: 16px; text-decoration: none;}
-.teamsInfo {display: none;}
+.teams #teamsList li a { font-family: 'RodeoBold'; color: black; font-size: 18px; text-decoration: none;}
+
 .members {}
 
 .teams #source {
@@ -60,28 +103,32 @@ body { margin: 0px; padding: 0px; min-width: 980px; background: url("../img/bg.p
 .stats {
     margin-left: 210px;
 }
-.stats .title {
+.statsContainer{
+	margin-left: 80px;
+	margin-right: 80px;
+	}
+.teamsProgress .title {
     width: 250px;
     float: left;
     height: 50px;
     line-height: 50px;
     border: 1px solid green;
 }
-.stats .tabs {
+.teamsProgress .tabs {
     width: 450px;
     float: left;
     height: 50px;
     line-height: 50px;
 }
-.stats .tabs .tab {
+.teamsProgress .tabs .tab {
     margin-left: 25px;
     padding: 0px 10px 0px 10px;
     float: left;
     border: 1px solid #444;
 }
-.stats .charts {
-    width: 800px;
-    border: 1px solid green;
+.teamsProgress .charts {
+    /*width: 800px;*/
+    /*border: 1px solid green;*/
     height: 300px;
     padding-top: 25px;
 }
@@ -105,3 +152,5 @@ div.jqplot-target {
 /* SAME FONT SETUP PAGES*/
 .achList li, .skillsList li { font-family: 'RodeoLight'; margin-left: 18px;}
 
+/* RULES PAGE */
+.rulesImage { margin-top: 10px; width: 690px }
