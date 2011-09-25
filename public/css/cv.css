@@ -1,3 +1,67 @@
-body.cvFrame {
-    background: none !important;
+.cvDefault {
+    margin: 0;
+    padding: 0;
+    width: 1200px;
+}
+.cvContent {
+    width: 1200px;
+}
+
+.cvDefault .frontBackground {
+    width: 1200px;
+    height: 1550px;
+    z-index: -1;
+}
+.cvDefault .pageBackground {
+    width: 1200px;
+    height: 1550px;
+    z-index: -1;
+}
+.cvDefault .name {
+    position: absolute;
+    color: black;
+    top: 295px;
+    left: 440px;
+    font-size: 40px;
+}
+
+.cvDefault .teamName {
+    position: absolute;
+    color: black;
+    top: 357px;
+    right: 480px;
+    font-size: 20px;
+    width: 150px;
+}
+.cvDefault .teamName .center {
+    text-align: center;
+}
+
+.cvDefault .skills {
+    position: absolute;
+    width: 1100px;
+}
+
+.cvDefault .achievements {
+    position: absolute;
+    width: 1100px;
+}
+
+.cvDefault .img {
+    background-color: red;
+    position: absolute;
+}
+
+.cvDefault .skillsHeader {
+    position: absolute;
+    left: 50px;
+    top: 0px;
+    width: 1000px;
+}
+
+.cvDefault .achievementsHeader {
+    position: absolute;
+    left: 50px;
+    top: 0px;
+    width: 1000px;
 }
