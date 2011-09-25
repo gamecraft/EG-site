@@ -62,7 +62,6 @@
         	          {
         	            // Don't show a line, just show markers.
         	            // Make the markers 7 pixels with an 'x' style
-        	            showLine:false, 
         	            markerOptions: { size: 7, style:"x" },
         	            label:allTeams[1].name
         	          },
