@@ -77,7 +77,6 @@ $(document).ready(function(){
     		if(response.data){
     			var skills = new global.modules.Skills(response.data);
                 skills.renderTo($(".content"));
-                $(".teamsInfo").show();//show the back button
     		}
             
     	});
@@ -87,7 +86,6 @@ $(document).ready(function(){
     		if(response.data){
     			var achs = new global.modules.Achievements(response.data);
                 achs.renderTo($(".content"));
-                $(".teamsInfo").show();//show the back button
     		}
             
     	});
@@ -96,11 +94,9 @@ $(document).ready(function(){
     $(".rulesBtn").click(function(){
     	var rules = new global.modules.Rules();
     	rules.renderTo($(".content"));
-        $(".teamsInfo").show();//show the back button
     });
     
     $(".teamsInfo").click(function(){
-    	$(".teamsInfo").hide();
     	loadHomePage(true);
     });
     

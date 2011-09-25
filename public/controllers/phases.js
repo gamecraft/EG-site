@@ -24,7 +24,6 @@
             if(timerID != null)
                 clearInterval(timerID);
             timerID = null;
-            $(".phase").removeClass("activePhase");
             $(".timer").html(formatTimeLeft(0));
         }
         

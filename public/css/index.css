@@ -12,7 +12,6 @@ body { margin: 0px; padding: 0px; min-width: 980px; background: url("../img/bg.p
 .buttons { background: #333; padding: 5px 10px 5px 10px; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; -webkit-box-shadow: 0px 1px 3px #000; -moz-box-shadow: 0px 1px 3px #000; box-shadow: 0px 1px 3px #000;}
 .buttons { color: white; text-decoration: none; font-family: 'UbuntuLight';}
 .buttons:hover { color: white; opacity: 0.9;}
-.rulesBtn { float: left;}
 
 .rulesBtnView { text-align: center; }
 .phases { width: 800px; height: 50px; left: 20px; float: left; position: relative; overflow: hidden; }
@@ -25,6 +24,9 @@ body { margin: 0px; padding: 0px; min-width: 980px; background: url("../img/bg.p
     float: right;
     margin-right: 50px;
 }
+.rulesBtn { }
+.teamsInfo { }
+
 .timer { float: right; margin-top: 13px; margin-right: 40px; font-size: 19px; color: #444; font-family: 'RodeoBold';}
 
 /* CENTER INFO */
@@ -36,7 +38,7 @@ body { margin: 0px; padding: 0px; min-width: 980px; background: url("../img/bg.p
 
 .teams #teamsList li { margin: 20px 0 0 15px;}
 .teams #teamsList li a { font-family: 'RodeoBold'; color: black; font-size: 18px; text-decoration: none;}
-.teamsInfo {display: none;}
+
 .members {}
 
 .teams #source {
