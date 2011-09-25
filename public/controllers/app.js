@@ -9,6 +9,10 @@ $(document).ready(function(){
                 if(currentPage == "") 
                     loadTeamInfo(true); 
             break;
+            case "phase.finished.changed":
+            case "phase.active.changed":
+                loadHeader();
+            break;
         }
     }
 
