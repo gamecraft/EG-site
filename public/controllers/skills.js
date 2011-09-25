@@ -9,7 +9,7 @@
                         for(var i in skills){
                         	console.log("skills");
                     		console.log(skills[i]);
-                    		view.append({skill: skills[i].name}, $(".skillsList"));
+                    		view.append({skill: skills[i].name, description: skills[i].description}, $(".skillsList"));
                         }
                         	
                     });
