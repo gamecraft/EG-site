@@ -1,6 +1,16 @@
 $(document).ready(function(){
     global.repo.endpoint = "//178.79.173.17:3000";
-    window.now = nowInitialize(global.repo.endpoint, {});
+    var now = window.now = nowInitialize(global.repo.endpoint, {});
+    var currentPage = "";
+    now.handleEvent = function(type, data) {
+        console.log(arguments);
+        switch(type) {
+            case "team.totalPoints.changed": 
+                if(currentPage == "") 
+                    loadTeamInfo(true); 
+            break;
+        }
+    }
 
 	//load the phases - header
     var wireClickEvents = function(){
@@ -64,6 +74,7 @@ $(document).ready(function(){
 	};
 	
 	var loadHomePage=function(withPoints){
+	    currentPage = "";
 		var homePage= new global.modules.HomePage();
 		homePage.renderTo($(".content"), function(){
             loadTeamInfo(withPoints);
@@ -73,6 +84,7 @@ $(document).ready(function(){
 	loadHomePage(true);
     
     $(".skillsBtn").click(function(){
+        currentPage = "skills";
     	global.repo('Skill').list({level:"0"},null,null,function(err, response){
     		if(response.data){
     			var skills = new global.modules.Skills(response.data);
@@ -82,6 +94,7 @@ $(document).ready(function(){
     	});
     });
     $(".achievementsBtn").click(function(){
+        currentPage = "achievements";
     	global.repo('Achievement').list({public:"yes"},null,null,function(err, response){
     		if(response.data){
     			var achs = new global.modules.Achievements(response.data);
@@ -92,6 +105,7 @@ $(document).ready(function(){
     });
     
     $(".rulesBtn").click(function(){
+        currentPage = "rules";
     	var rules = new global.modules.Rules();
     	rules.renderTo($(".content"));
     });
