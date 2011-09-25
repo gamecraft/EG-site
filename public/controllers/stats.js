@@ -9,7 +9,7 @@
         	for(var teamIndex=0;teamIndex<teamsCount;teamIndex++){
         		var team={};
         		team.totalLevel=teamIndex*5;
-        		team.name="kjsahdkjsa";
+        		team.name="kjsahdkjsa"+teamIndex;
         		team.finishedPhases=[];
         		
         		for(var i=0;i<phasesCount;i++){
@@ -32,6 +32,7 @@
     		
         	var chartLines=[];
         	var chartSeries=[];
+        	
         	for(var i in allTeams){
         		var team = allTeams[i];
         		var teamLine = [];
@@ -40,13 +41,38 @@
                     lineWidth:2, 
                     markerOptions: { style:'dimaond' }
         		});
-        		for(var phaseIndex in team.finishedPhases) {
-        			teamLine.push([phaseIndex, team.finishedPhases[phaseIndex].totalPoints]);
+        		for(var phaseIndex=0;phaseIndex<team.finishedPhases.length;phaseIndex++) {
+        			teamLine.push([phaseIndex+1, team.finishedPhases[phaseIndex].totalPoints]);
         		}
         		chartLines.push(teamLine);
+        		console.log("lines");
+        		console.log(chartLines);
         	}
-        	
-        	next(chartLines, chartSeries);
+        	var series=[ 
+        	          {
+        	            // Change our line width and use a diamond shaped marker.
+        	            lineWidth:2, 
+        	            markerOptions: { style:'dimaond' },
+        	            isMinorTick:true
+        	          }, 
+        	          {
+        	            // Don't show a line, just show markers.
+        	            // Make the markers 7 pixels with an 'x' style
+        	            showLine:false, 
+        	            markerOptions: { size: 7, style:"x" }
+        	          },
+        	          { 
+        	            // Use (open) circlular markers.
+        	            markerOptions: { style:"circle" }
+        	          }, 
+        	          {
+        	            // Use a thicker, 5 pixel line and 10 pixel
+        	            // filled square markers.
+        	            lineWidth:5, 
+        	            markerOptions: { style:"filledSquare", size:10 }
+        	          }
+        	      ]
+        	next(chartLines, series);
     	};
     	
     	var createLineChart2Data=function(allTeams, next){//jury points per phase
@@ -61,8 +87,8 @@
                     lineWidth:2, 
                     markerOptions: { style:'dimaond' }
         		});
-        		for(var phaseIndex in team.finishedPhases) {
-        			teamLine.push([phaseIndex, team.finishedPhases[phaseIndex].juryPoints]);
+        		for(var phaseIndex=0;phaseIndex<team.finishedPhases.length;phaseIndex++) {
+        			teamLine.push([phaseIndex+1, team.finishedPhases[phaseIndex].juryPoints]);
         		}
         		chartLines.push(teamLine);
         	}
@@ -81,7 +107,7 @@
         	next(line);
     	};
     	
-    	var plotLineChart = function(target, title, chartLines, chartSeries) {
+    	var plotLineChart = function(target, title, chartLines, chartSeries,yaxesLabel) {
     		$("#"+target).html("");
             $.jqplot(target, chartLines, 
                 { 
@@ -89,9 +115,32 @@
                   // Series options are specified as an array of objects, one object
                   // for each series.
                   series:chartSeries
-                }
-             );  
-    	};
+                ,   		    
+                axes: {
+      		      xaxis: {
+      		        renderer: $.jqplot.CategoryAxisRenderer,
+      		        label:"Фази"
+      		      },
+      		      yaxis:{
+      		    	  labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+      		    	  label:yaxesLabel,
+      		    	  min: 0,
+      		      tickOptions:{
+      		            formatString:'%.0f'
+      		      		}
+      		      },
+      		      highlighter: {
+      		        show: true,
+      		        sizeAdjust: 7.5
+      		      },
+      		      cursor: {
+      		        show: false
+      		      }
+            	
+      		    }}
+             ); 
+         };
+  
     	
     	var plotBarChart = function(target, title, chartLines){
     		console.log("lines");
@@ -109,27 +158,43 @@
     		    },
     		    axes: {
     		      xaxis: {
-    		        renderer: $.jqplot.CategoryAxisRenderer
-    		      }
+    		        renderer: $.jqplot.CategoryAxisRenderer,
+    		        label:"Отбори"
+    		      },
+    		      yaxis:{
+      		    	  labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+      		    	  label:"Общо точки",
+      		    	  min: 0,
+        		      tickOptions:{
+          		         formatString:'%.0f'
+        		      }
+    		      },
+      		      highlighter: {
+      		        show: true,
+      		        sizeAdjust: 7.5
+      		      },
+      		      cursor: {
+      		        show: false
+      		      }
     		    }
     		});
     	};
     	
         this.renderTo = function(target, callback) {
-            var plotcharts = ["TeamPointsPerPhase", "JuryPointsPerPhase"];
-            var barcharts=["TeamsTotalLevelBarChart"];//sum of skill points for every team
+            var plotcharts = ["Отборни точки", "Отборни точки от журито"];
+            var barcharts=["Общо класиране"];//sum of skill points for every team
             target.html("");
 
             global.view("/views/stats.html").render({title: teamName}, target, null, function(stats){
                 loadData(function(allTeams){
                 	createLineChartData(allTeams, function(chartLines, chartSeries){
-                		plotLineChart("lineChart1Container", "TeamPointsPerPhase", chartLines, chartSeries);
+                		plotLineChart("lineChart1Container", "Отборни точки", chartLines, chartSeries, "Отборни точки");
                 	});
                 	createLineChart2Data(allTeams, function(chartLines, chartSeries){
-                		plotLineChart("lineChart2Container", "JuryPointsPerPhase", chartLines, chartSeries);
+                		plotLineChart("lineChart2Container", "Отборни точки от журито", chartLines, chartSeries,"Отборни точки от журито");
                 	});
                 	createBarChartData(allTeams,function(chartlines){
-                		plotBarChart("barChart1Container", "TeamsTotalLevelBarChart",chartlines);
+                		plotBarChart("barChart1Container", "Общо класиране",chartlines);
                 	});
                 });
                 $(".close", stats).click(function(){
