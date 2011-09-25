@@ -25,6 +25,7 @@
                 clearInterval(timerID);
             timerID = null;
             $(".timer").html(formatTimeLeft(0));
+            $(".phase").removeClass("activePhase");
         }
         
         var setCurrentPhase = function(phaseId, timeLeft) {
