@@ -1,10 +1,10 @@
 @import url("font.css");
 * { margin: 0; padding: 0;}
-html { overflow: hidden; margin: 0; padding: 0;}
-body { margin: 0px; padding: 0px; min-width: 980px; background: url("../img/bg.png"); overflow: hidden; }
-.teams, .teamsProgress, .membersCont, .sameTop, .sameBottom { background: url("../img/sprite.png");}
+html { overflow-x: hidden; margin: 0; padding: 0; min-width: 1024px;}
+body { margin: 0px; padding: 0px; min-width: 1024px; background: url("../img/bg.png");}
+.teams, .teamsProgress, .membersCont, .sameTop, .sameBottom, .backBtn { background: url("../img/sprite.png");}
 
-.header { height: 71px; width: 100%; background: url("../img/repeattop.png") repeat-x; min-width: 800px; margin: 0 auto; padding: 0 auto;}
+.header { height: 71px; width: 100%; min-width: 1024px; background: url("../img/repeattop.png") repeat-x; margin: 0 auto; padding: 0 auto;}
 .float { float: left;}
 .logo { float: left; width: 236px; height: 132px; margin-left: 30px; background: url("../img/logo.png") no-repeat;}
 
@@ -12,18 +12,15 @@ body { margin: 0px; padding: 0px; min-width: 980px; background: url("../img/bg.p
 .buttons { background: #333; padding: 5px 10px 5px 10px; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; -webkit-box-shadow: 0px 1px 3px #000; -moz-box-shadow: 0px 1px 3px #000; box-shadow: 0px 1px 3px #000;}
 .buttons { color: white; text-decoration: none; font-family: 'UbuntuLight';}
 .buttons:hover { color: white; opacity: 0.9;}
+.backBtn { width: 22px; height: 27px; background-position: 0 -952px; position:relative; right: 0px; float:right; top: 25px; right: 30px; z-index: 5;}
 
 .rulesBtnView { text-align: center; }
 .phases { width: 800px; height: 50px; left: 20px; float: left; position: relative; overflow: hidden; }
 
-.phase { float: left; position: relative; margin: 13px 10px 0 10px;}
-.activePhase { border: 1px solid red; }
+.phase { float: left; sition: relative; margin: 13px 10px 0 10px;}
 .phase a { text-decoration: none; color: black; font-size: 18px; font-family: 'RodeoBold';}
 .headerBtns { float: right; margin-top: 45px;}
-.headerBtns a {
-    float: right;
-    margin-right: 50px;
-}
+.headerBtns a { float: right; margin-right: 50px;}
 .rulesBtn { }
 .teamsInfo { }
 
@@ -54,38 +51,30 @@ div.jqplot-title {
 	margin-bottom: 20px;
 	
 }
-table.jqplot-table-legend{
-	padding-top: 50px;	
-	top:100px;
-	left:160px;
-	margin-top:280px;
-	
-}
-table.jqplot-table-legend tr{
-	float:left;
-}
+table.jqplot-table-legend{	padding-top: 50px; top:100px; width: 600px; left: 0px; margin-top:370px;}
+tbody { position: relative; margin-top: 200px;}
+table.jqplot-table-legend tr { float:left; margin: 0 10px 0 10px;}
 table.jqplot-table-legend, table.jqplot-cursor-legend {
 	background-color: transparent;
 	border: none;	
 }
 
-.content { width: 100%; margin-top: 115px; min-width: 980px;}
+.content { width: 100%; margin-top: 115px; min-width: 1024px;}
 .teams { float: left; width: 270px; height: 416px; background-position: 0 -73px; }
-.teams .teamsCont  { margin: 70px 0 30px 20px; color: #222; position: relative; top: 20px; font-family: 'RodeoBold'; font-size: 25px; font-weight: normal;}
+.teams .teamsCont { margin: 70px 0 30px 20px; color: #222; position: relative; top: 20px; font-family: 'RodeoBold'; font-size: 21px; font-weight: normal;}
 .teams #teamsList { top: 20px; position: relative; font-family: 'RodeoBold'; font-size: 18px;}
-
-.teams #teamsList li { margin: 20px 0 0 15px;}
-.teams #teamsList li a { font-family: 'RodeoBold'; color: black; font-size: 18px; text-decoration: none;}
+.teams #teamsList li { margin: 20px 0 0 30px; position: relative; left: 30px;}
+.teams #teamsList li a { font-family: 'RodeoBold'; color: black; font-size: 17px; text-decoration: none;}
 
 .members {}
 
 .teams #source {
     list-style-type: none;
 }
-.teamsProgress { float: right; width: 867px; height: 497px; margin: -50px auto; padding-top: 65px; right: 60px; background-position: -270px 0; position: relative; }
+.teamsProgress { float: right; width: 867px; height: 497px; margin: -80px auto; padding-top: 65px; right: 60px; background-position: -270px 0; position: relative; }
 .teamsProgress span { font-family: 'RodeoBold'; font-size: 18px; margin-left: 100px;}
 
-.teamProgressitem { margin: 30px 0 0 100px;}
+.teamProgressitem { margin: 20px 0 0 100px;}
 
 .teamProgress .progress { width: 100px;  border: 1px solid #000; position: absolute; }
 .progress { height: 29px; position: relative; left: 0px; margin-bottom: 15px; background-color: #111; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; -moz-box-shadow: 0px 1px 3px #000; -webkit-box-shadow: 0px 1px 3px #000; box-shadow: 0px 1px 3px #000; color: white; }
@@ -93,11 +82,11 @@ table.jqplot-table-legend, table.jqplot-cursor-legend {
 
 
 .membersCont { float: left; width: 270px; height: 416px; background-position: 0 -73px;}
-.membersCont .backBtn{position:relative; right: 0px;float:right; padding-right: 30px; padding-top: 30px;}
 /*.membersCont .membersHead  { position: relative; top: 20px; left: 5px;}*/
-.membersCont .teamName{ margin: 70px 0 30px 20px; color: #222; position: relative; top: 20px; font-family: 'RodeoBold'; font-size: 25px; font-weight: normal;}
-.membersList { top: 20px; position: relative; font-family: 'RodeoBold'; font-size: 18px;}
-.membersList li { margin: 20px 0 0 15px;}
+.membersHead .teamNameHead { margin: 0px 0 30px 20px; color: #222; position: relative; top: 20px; font-family: 'RodeoBold'; font-size: 21px; font-weight: normal;}
+.membersHead .membersList { top: 20px; position: relative; font-size: 18px;}
+.membersHead .membersList li { margin: 20px 0 0 25px; position: relative; left: 30px; font-family: 'RodeoBold'; color: black; font-size: 17px; } 
+
 
 
 .stats {
@@ -146,7 +135,7 @@ div.jqplot-target {
 .sameCont { width: 784px; margin: 0px auto; }
 .sameTop {  height: 45px; background-position: -307px -596px;}
 .sameCenter { padding-left: 50px; background: url("../img/bgrepeat.png")  repeat-y; }
-.sameBottom { height: 47px; background-position: -307px -648px;}
+.sameBottom { height: 47px; margin-bottom: 40px; background-position: -307px -648px;}
 .sameCenter h2 { font-family: 'RodeoBold'; font-size: 18px; font-weight: normal;}
 
 /* SAME FONT SETUP PAGES*/
@@ -154,3 +143,4 @@ div.jqplot-target {
 
 /* RULES PAGE */
 .rulesImage { margin-top: 10px; width: 690px }
+.activePhase { background: orange; }
