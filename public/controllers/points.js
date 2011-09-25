@@ -8,7 +8,7 @@
         	var progress=points*100/maxPoints;
         	progress=Math.round(progress);
         	progress=500*progress/100;
-        	if(progress<=0)
+        	if(progress<=0||undefined)
         		progress=1;
         	console.log("progress"+progress);
         	return progress;
@@ -21,6 +21,9 @@
         	}
         	return maxPoints;
         };
+        var compareTotals = function(a, b) {
+        	return b.totalPoints - a.totalPoints;
+        };
         this.renderTo = function(target) {
         	global.view("/views/points.html")
             .render({}, target, null, function(){
@@ -29,8 +32,9 @@
                  	.loadView(function(view){
 	                 	pointsView = view;
 	                 	var maxPoints=getMaxPoints(teamsData);
-	                     for(var i in teamsData){
-	                    	 pointsView.append({points: teamsData[i].totalPoints,team: teamsData[i].name,progress:calculateProgress(maxPoints,teamsData[i].totalPoints)}
+	                 	var teamsDataSorted = teamsData.sort(compareTotals);
+	                     for(var i in teamsDataSorted){
+	                    	 pointsView.append({points: teamsDataSorted[i].totalPoints,team: teamsDataSorted[i].name,progress:calculateProgress(maxPoints,teamsDataSorted[i].totalPoints)}
 	                    	 , target);
 	                     }
 	                     	
