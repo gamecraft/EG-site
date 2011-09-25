@@ -37,6 +37,12 @@ body { margin: 0px; padding: 0px; min-width: 980px; background: url("../img/bg.p
 #lineChart2Container {
 	margin-left: 20px;
 	margin-right: 20px;
+	
+}
+div.jqplot-title {
+	font-size:0.8em;
+	padding-bottom: 10px;	
+	margin-bottom: 20px;
 }
 #barChart1Container .jqplot-point-label {
 	margin-left: 20px;
