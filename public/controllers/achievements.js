@@ -9,7 +9,7 @@
                         for(var i in achievements){
                         	console.log("achievements");
                     		console.log(achievements[i]);
-                    		view.append({achievement: achievements[i].name}, $(".achList"));
+                    		view.append({achievement: achievements[i].name, description: achievements[i].description}, $(".achList"));
                         }
                         	
                     });

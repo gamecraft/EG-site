@@ -22,9 +22,11 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/index.css">
+  
   <link rel="stylesheet" href="css/smoothness/jquery-ui-1.8.16.custom.css">
+  
   <link rel="stylesheet" type="text/css" href="css/jquery.jqplot.min.css" />
+  <link rel="stylesheet" href="css/index.css">
   
   <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
 
@@ -35,14 +37,14 @@
 </head>
 
 <body>
-
-	
-		<div class="header">
+<table>
+	<tr>
+		<td style="height: 132px;"><div class="header">
 				<div class="left float"></div>
 				<div class="centerPart float">
 					<div class="logo"></div>
     				<div class="phases"> <!-- Phases goes here --> </div>
-					<div class="timer">Време:&nbsp;01:39:10</div>
+					<div class="timer"></div>
     				<div class="headerBtns">
 						<a href="javascript:void(0);" class="rulesBtn buttons"><div class="rulesView">Правила</div></a>	
         				<a href="javascript:void(0);" class="skillsBtn buttons"><div class="skillsView">Умения</div></a>
@@ -51,32 +53,44 @@
   					</div>
 				</div>
 				<div class="right float"></div>
-			</div>	
+			</div>
+		</td>
+	<tr>	
+	<tr>
+		<td>	
 			<div class="content">
 				
-  			</div>	
+  			</div>
+		</td>
+	</tr>
+	</table>	
   
   <!-- JavaScript at the bottom for fast page loading -->
 
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
-  <script>
-    var global = {};
-    global.modules = {};
-    global.data={};
-  </script>
-  <script src="js/libs/view.js"></script>
-  <script src="js/libs/json2.js"></script>
-  <script src="js/libs/repo.js"></script>
-
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.4.min.js"><\/script>')</script>
-  <script src="js/libs/jquery-ui-1.8.16.custom.min.js"></script>
-  <script src="js/libs/jquery-quicksand-1.2.2.js"></script>
-  <script src="js/libs/jquery.jqplot.min.js"></script>
-  <script type="text/javascript" src="js/libs/jqplot.canvasTextRenderer.min.js"></script>
-  <script type="text/javascript" src="js/libs/jqplot.canvasAxisLabelRenderer.min.js"></script>
-  <script type="text/javascript" src="js/libs/now.js"></script>
-  
+	<script>
+	  var global = {};
+	  global.modules = {};
+	  global.data={};
+	  global.ui={};
+	</script>
+	<script src="js/libs/view.js"></script>
+	<script src="js/libs/json2.js"></script>
+	<script src="js/libs/repo.js"></script>
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.4.min.js"><\/script>')</script>
+	<script src="js/libs/jquery-ui-1.8.16.custom.min.js"></script>
+	<script src="js/libs/jquery-quicksand-1.2.2.js"></script>
+	<script src="js/libs/jquery.jqplot.min.js"></script>
+	<script type="text/javascript" src="js/libs/jqplot.canvasTextRenderer.min.js"></script>
+	<script type="text/javascript" src="js/libs/jqplot.canvasAxisLabelRenderer.min.js"></script>
+	<script type="text/javascript" src="js/libs/now.js"></script>
+	<script type="text/javascript" src="js/libs/jqplot.barRenderer.min.js"></script>
+	<script type="text/javascript" src="js/libs/jqplot.categoryAxisRenderer.min.js"></script>
+	<script type="text/javascript" src="js/libs/jqplot.pointLabels.min.js"></script>
+	<script type="text/javascript" src="js/libs/jqplot.dateAxisRenderer.min.js"></script>
+	<script type="text/javascript" src="js/libs/jqplot.canvasAxisTickRenderer.min.js"></script>
 
 
   <!-- scripts concatenated and minified via build script -->
