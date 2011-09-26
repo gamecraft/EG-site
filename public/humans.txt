@@ -3,18 +3,18 @@
 
 
 /* TEAM */
-  <your title>: <your name>
-  Site:
-  Twitter:
-  Location:
+  <your title>: gamecraft
+  Site: http://game-craft.com
+  Twitter: 
+  Location: Sofia,Bulgaria
 
 /* THANKS */
-  Names (& URL):
+  Names (& URL): Deny, Marti, Mladen, Rado, Vitaliy, Boris & co(initLab,varnaLab,...).
 
 /* SITE */
   Standards: HTML5, CSS3
   Components: Modernizr, jQuery
-  Software:
+  Software: open source
 
 
 

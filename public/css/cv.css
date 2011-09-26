@@ -25,26 +25,24 @@
     font-size: 40px;
 }
 
+.cvDefault .teamScore {
+    position: absolute;
+    color: black;
+    top: 275px;
+    left: 1010px;
+    font-size: 60px;    
+}
+
 .cvDefault .teamName {
     position: absolute;
     color: black;
     top: 357px;
-    right: 480px;
+    left: 905px;
     font-size: 20px;
-    width: 150px;
+    width: 250px;
 }
 .cvDefault .teamName .center {
     text-align: center;
-}
-
-.cvDefault .skills {
-    position: absolute;
-    width: 1100px;
-}
-
-.cvDefault .achievements {
-    position: absolute;
-    width: 1100px;
 }
 
 .cvDefault .img {
@@ -54,14 +52,26 @@
 
 .cvDefault .skillsHeader {
     position: absolute;
-    left: 50px;
-    top: 0px;
     width: 1000px;
 }
 
 .cvDefault .achievementsHeader {
     position: absolute;
-    left: 50px;
-    top: 0px;
     width: 1000px;
+}
+
+.cvDefault #teamsPoints {
+    position: absolute;
+    top: 400px;
+    left: 150px;
+}
+.cvDefault #juryPoints {
+    position: absolute;
+    top: 400px;
+    left: 400px;
+}
+.cvDefault #skillLevels {
+    position: absolute;
+    top: 400px;
+    left: 650px;
 }
