@@ -152,4 +152,12 @@ div.jqplot-target {
 
 /* RULES PAGE */
 .rulesImage { margin: 10px 0 0 -5px; width: 690px }
-.activePhase { background: orange; }
+.activePhase { 
+    background: orange; 
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
