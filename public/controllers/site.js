@@ -99,10 +99,12 @@
                                 	$(".teams").html="";
                                 	$(".title").remove();
                                 	$(".tabs").remove();
+                                	currentPage = "";
                                 	loadTeamInfo();
                             	});
                             	
-                            	$(".memberBtn").click(function(e){
+                            	/*$(".memberBtn").click(function(e){
+                            	    currentPage = "home-member-stats";
                             		var selectedMemberName=e.currentTarget.innerText;
                             		//get the right teamMember
                             		var members=response.data;
@@ -116,7 +118,7 @@
                             				break;
                             			}
                             		}
-                            	});
+                            	});*/
                         	});
 	                     });
                     };
