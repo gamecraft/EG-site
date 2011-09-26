@@ -81,7 +81,7 @@ table.jqplot-table-legend, table.jqplot-cursor-legend {
 .teams #source {
     list-style-type: none;
 }
-.teamsProgress { width: 735px; height: 497px; margin: -10px auto; padding-top: 65px; background-position: -252px 0; position: relative; }
+.teamsProgress { width: 735px; height: 497px; float: left; left: 270px;  padding-top: 65px; background-position: -252px 0; position: absolute; }
 .teamsProgress span { font-family: 'RodeoBold'; font-size: 18px; margin-left: 100px;}
 
 .teamProgressitem { margin: 20px 0 0 100px;}
