@@ -8,48 +8,98 @@
                     var now = window.now = nowInitialize(global.repo.endpoint, {});
                     var currentPage = "";
                     now.handleEvent = function(type, data) {
-                        console.log(arguments);
                         switch(type) {
                             case "team.totalPoints.changed": 
-                                if(currentPage == "") 
-                                    loadTeamInfo(true); 
+                                if(currentPage == "" || currentPage == "home-stats") 
+                                    loadTeamInfo(); 
                             break;
                             case "phase.finished.changed":
-                                if(currentPage == "") 
-                                    loadTeamInfo(true); 
+                                if(currentPage == "" || currentPage == "home-stats") 
+                                    loadTeamInfo();
                             case "phase.active.changed":
                                 loadHeader();
                             break;
                         }
                     }
 
-                    //load the phases - header
-                    var wireClickEvents = function(){
-                        $(".teams a.btn").click(function(e){
-                        	//loadStatistics();
-                        	loadTeamMembers(e.currentTarget._id,e.currentTarget.innerText);
-                       });
+                    var loadHeader=function(){
+                        if(global.ui.phases)
+                            global.ui.phases.destroy();
+	                    global.repo("Phase").list({finished: false}, null, null, function(err, res) {
+                            global.ui.phases = new global.modules.Phases(res.data);
+                        	global.ui.phases.renderTo($(".phases"));
+                        });
                     };
                     
-                    var loadStatistics=function(){
+                    var loadHomePage=function(){
+                        currentPage = "";
+	                    var homePage= new global.modules.HomePage();
+	                    homePage.renderTo($(".content"), function(){
+		                    //add event listeners to statistics and totalPoints btn clicking
+		                    var addEventListeners=function(){
+			                    $(".pointsBtn").click(function(){
+			                        currentPage = "";
+				                    renderTeamPoints(global.data.Teams);
+			                    });
+			                    $(".statisticsBtn").click(function(){
+			                        currentPage = "home-stats";
+				                    renderStatistics();
+			                    });
+			
+		                    };
+                            loadTeamInfo(addEventListeners);
+                        });
+                    };
+                    
+                    var loadTeamInfo=function(next){
+	                    global.repo('Team').list({},null,null,function(err, response){
+		                    global.data.Teams=response.data.sort(function(a, b) {
+                            	return b.totalPoints - a.totalPoints;
+                            });
+		                    
+                            var teams = new global.modules.Teams(global.data.Teams);
+	                        teams.renderTo($(".teams"),function(){
+                                $(".teams a.btn").click(function(e){
+                                    loadTeamMembers(e.currentTarget._id,e.currentTarget.innerText);
+                                });
+                                
+                                if(next)
+                                    next();
+                                    
+                                if(currentPage == "")
+                                    renderTeamPoints(global.data.Teams);
+                                else
+                                if(currentPage == "home-stats")
+                                    renderStatistics();
+		                    });
+                        });
+                    };
+                    
+                    var renderTeamPoints=function(data){
+	                     var points = new global.modules.Points(data);
+	                        points.renderTo($(".dest"));
+                    };
+                    
+                    var renderStatistics=function(){
                     	var stats = new global.modules.Stats($(".dest"));//team name
                     	stats.renderTo($(".dest"));
                     };
+                    
                     var loadTeamMembers=function(teamId,teamName){
                     	//get team members
                     	global.repo("TeamMember").list({teamId:teamId},null,null,function(err, response) {
                         	//create teamMembersView
                         	var teamMembers= new global.modules.TeamMembers(response.data,teamName);
                         	//remove teams
-                        	$(".teams").html="";
-                        	var callback=function(){
+                        	$(".teams").html("");
+                        	teamMembers.renderTo($(".teams"), function(){
                         		//add event listener for back button
                             	$(".backBtn").click(function(e){
                             		//remove team members
                                 	$(".teams").html="";
                                 	$(".title").remove();
                                 	$(".tabs").remove();
-                                	loadTeamInfo(false);
+                                	loadTeamInfo();
                             	});
                             	
                             	$(".memberBtn").click(function(e){
@@ -66,70 +116,12 @@
                             				break;
                             			}
                             		}
-                            		
                             	});
-                        	};
-                        	teamMembers.renderTo($(".teams"),callback);
-                        	
-                        	
+                        	});
 	                     });
                     };
-                    var loadHeader=function(){
-                        if(global.ui.phases)
-                            global.ui.phases.destroy();
-	                    global.repo("Phase").list({finished: false}, null, null, function(err, res) {
-                            global.ui.phases = new global.modules.Phases(res.data);
-                        	global.ui.phases.renderTo($(".phases"));
-                        });
-                    };
-
-
-                    var loadTeamPoints=function(data){
-                    	
-	                     var points = new global.modules.Points(data);
-	                        points.renderTo($(".dest"));
-                    };
-                    var compareTotals = function(a, b) {
-                    	return b.totalPoints - a.totalPoints;
-                    };
-                    var loadTeamInfo=function(withPoints,next){
-	                    global.repo('Team').list({},null,null,function(err, response){
-		                    global.data.Teams=response.data.sort(compareTotals);
-		                    var callback=function(){
-			                    wireClickEvents();
-			                    if(next)
-				                    next();
-		                    };
-                            var teams = new global.modules.Teams(global.data.Teams);
-	                        teams.renderTo($(".teams"),callback);
-                           if(withPoints==true){
-                        	   loadTeamPoints(global.data.Teams);
-                           }
-	                        
-	                       
-                        });
-                    };
-
-                    var loadHomePage=function(withPoints){
-                        currentPage = "";
-	                    var homePage= new global.modules.HomePage();
-	                    homePage.renderTo($(".content"), function(){
-		                    //add event listeners to statistics and totalPoints btn clicking
-		                    var addEventListeners=function(){
-			                    $(".pointsBtn").click(function(){
-				                    loadTeamPoints(global.data.Teams);
-				                    
-			                    });
-			                    $(".statisticsBtn").click(function(){
-				                    loadStatistics();
-			                    });
-			
-		                    };
-                            loadTeamInfo(withPoints,addEventListeners);
-                        });
-                    };
-                    loadHeader();
-                    loadHomePage(true);
+                    
+/* ----------------- EVENT HANDLERS */
                     
                     $(".skillsBtn").click(function(){
                         currentPage = "skills";
@@ -159,8 +151,14 @@
                     });
                     
                     $(".teamsInfo").click(function(){
-                    	loadHomePage(true);
+                    	loadHomePage();
                     });
+
+                    // load header
+                    loadHeader();
+                    
+                    // load home page
+                    loadHomePage(true);
                 });
         }
     }
