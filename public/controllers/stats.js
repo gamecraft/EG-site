@@ -136,7 +136,6 @@
       		      },
       		      yaxis:{
       		    	  labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
-      		    	  label:yaxesLabel,
       		    	  min: 0,
       		      tickOptions:{
       		            formatString:'%.0f'
@@ -176,7 +175,6 @@
     		      },
     		      yaxis:{
       		    	  labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
-      		    	  label:"Общо точки",
       		    	  min: 0,
         		      tickOptions:{
           		         formatString:'%.0f'
