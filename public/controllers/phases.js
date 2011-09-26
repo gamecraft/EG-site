@@ -8,13 +8,13 @@
         var timerID = null;
         
         var formatTimeLeft = function(timeLeft) {
-            var hours = Math.round(timeLeft / (1000*60*60));
+            var hours = Math.floor(timeLeft / (1000*60*60));
             if(hours<10)
                 hours = "0"+hours;
-            var minutes = Math.round((timeLeft % (1000*60*60)) / (1000*60));
+            var minutes = Math.floor((timeLeft % (1000*60*60)) / (1000*60));
             if(minutes<10)
                 minutes = "0"+minutes;
-            var seconds = Math.round(((timeLeft % (1000*60*60)) % (1000*60)) / 1000);
+            var seconds = Math.floor(((timeLeft % (1000*60*60)) % (1000*60)) / 1000);
             if(seconds<10)
                 seconds = "0"+seconds;
             return "Време:&nbsp;"+hours+":"+minutes+":"+seconds;
