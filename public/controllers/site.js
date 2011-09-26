@@ -96,7 +96,7 @@
                         		//add event listener for back button
                             	$(".backBtn").click(function(e){
                             		//remove team members
-                                	$(".teams").html="";
+                                	$(".teams").html("");
                                 	$(".title").remove();
                                 	$(".tabs").remove();
                                 	currentPage = "";

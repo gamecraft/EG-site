@@ -23,7 +23,7 @@ table { width: 100%;}
 .rulesBtnView { text-align: center; }
 .scroll { width: 65%; overflow: hidden; float: left;}
 .phases {  width: 1024px; float: left;}
-.leftArrow { width: 21px; height: 24px; margin: 20px 0 0 20px; background-position: -25px -953px ; }
+.leftArrow { width: 21px; height: 24px; margin: 20px 0 0 20px; background-position: -25px -953px ; display: none; }
 .rightArrow { width: 21px; height: 24px; margin-top: 20px; margin-left: -345px; background-position: -47px -953px;  }
 
 .phase { float: left; position: relative; margin: 13px 10px 0 10px;}
