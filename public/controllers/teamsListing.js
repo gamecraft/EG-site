@@ -25,7 +25,8 @@
                                             view.append({
                                                 name: members[i].name,
                                                 teamName: team.name,
-                                                link: "/#cv/"+members[i]._id
+                                                link1: "/#cv/"+members[i]._id,
+                                                link2: "/#cv2/"+members[i]._id
                                             }, body);
                                         proecssNextTeam();
                                     });

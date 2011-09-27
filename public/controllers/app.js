@@ -10,6 +10,10 @@ $(document).ready(function(){
         var cv = new global.modules.CV(memberId);
         cv.renderTo($(document.body));        
     });
+    crossroads.addRoute('cv2/{memberId}', function(memberId){
+        var cv = new global.modules.CV2(memberId);
+        cv.renderTo($(document.body));        
+    });
     crossroads.addRoute("",function(){
         var site = new global.modules.Site();
         site.renderTo($(document.body));
