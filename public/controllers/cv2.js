@@ -20,7 +20,7 @@
     	};
     	
         var offsety = 760;
-        var pageHeight = 1450;
+        var pageHeight = 1550;
         var nextPageHeaderHeight = 400;
         var pages = 1;
         
@@ -28,21 +28,23 @@
         var imgHeight = 250*50/100+250;
         var spacex = 10;
         var spacey = 10;
+        
+        var addPage = function(target) {
+            pages += 1;
+            $(target).append("<img src='/img/cv/cv_next_pages.png' class='pageBackground'/>");
+            offsety += nextPageHeaderHeight;
+        }
 
         var advanceCurrentOffsetY = function(target, height, check){
             if(!check) {
                 offsety += height;
                 if(offsety >= pageHeight*pages) {
-                    pages += 1;
-                    $(target).append("<img src='/img/cv/cv_next_pages.png' class='pageBackground'/>");
-                    offsety += nextPageHeaderHeight;
+                    addPage(target);
                 }
             } else {
                 offsety += height;
                 if(offsety+check >= pageHeight*pages) {
-                    pages += 1;
-                    $(target).append("<img src='/img/cv/cv_next_pages.png' class='pageBackground'/>");
-                    offsety += nextPageHeaderHeight;
+                    addPage(target);
                 }
             }
         }
@@ -70,6 +72,9 @@
         }
         
         var renderSkills = function(target, member, skills) {
+            if(offsety+100+imgHeight+spacey >= pageHeight*pages) {
+                addPage(target);
+            }
             $(".cvDefault .skillsHeader").css("top", offsety).css("left", 100);
             advanceCurrentOffsetY(target, 100);
             for(var i = 0; i<member.skills.length; i++)
@@ -83,6 +88,9 @@
         };
         
         var renderAchievements = function(target, member, achievements) {
+            if(offsety+100+imgHeight+spacey >= pageHeight*pages) {
+                addPage(target);
+            }
             $(".cvDefault .achievementsHeader").css("top", offsety).css("left", 100);
             advanceCurrentOffsetY(target, 100);
              for(var i = 0; i<member.achievements.length; i++)
