@@ -11,7 +11,9 @@
                     url: global.repo.endpoint+"/"+repoName+url+query,
                     dataType: "json",
                     error: function(ajax, statusCode, errorMsg){
-                        callback(new Error(errorMsg+" [code]:"+statusCode));
+                        var err = new Error(errorMsg+" [code]:"+statusCode);
+                        err.statusCode = statusCode;
+                        callback(err);
                     },
                     success: function(data) {
                         callback(null, data);
