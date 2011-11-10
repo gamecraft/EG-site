@@ -13,7 +13,8 @@
                     "controller": "Stats",
                     "title": "Статистика"
                 }
-            ]
+            ],
+            "teamsCount": 5
         }, 
         {
             "controller": "Achievements",

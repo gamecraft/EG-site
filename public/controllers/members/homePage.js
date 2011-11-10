@@ -2,9 +2,10 @@
     global.modules.MembersHomePage = function(page){
         var currentPagew = null;
         var topMembers = null;
-        var competitors = new global.modules.Teams();
+        var competitors = new global.modules.Members();
 
         var fetchTopMembers = function(topCount, next) {
+            console.log(topCount);
             global.repo('TeamMember').list({},null,null,function(err, response){
                 if(err)
                     throw err;
@@ -26,8 +27,8 @@
         }
 
         this.handleEvent = function(type, data){
-            if(type == "team.totalPoints.changed") {
-                fetchTopMembers(5);
+            if(type == "team.totalPoints.changed" || type == "member.points.changed") {
+                fetchTopMembers(page.membersCount);
             }
         }
 
@@ -50,7 +51,7 @@
                         });
                     
                     currentPage = new (global.modules[page.pages[0].controller])();
-                    fetchTopMembers(5);
+                    fetchTopMembers(page.membersCount);
                 });
             });
         };

@@ -9,7 +9,8 @@
                     "controller": "MembersPoints",
                     "title": "Точки"
                 }
-            ]
+            ],
+            "membersCount": 10
         }, 
         {
             "controller": "MembersListing",

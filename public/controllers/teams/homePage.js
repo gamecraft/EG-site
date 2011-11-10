@@ -25,7 +25,7 @@
 
         this.handleEvent = function(type, data){
             if(type == "team.totalPoints.changed") {
-                fetchTopTeams(5);
+                fetchTopTeams(page.teamsCount);
             }
         }
 
@@ -48,7 +48,7 @@
                         });
                     
                     currentPage = new (global.modules[page.pages[0].controller])();
-                    fetchTopTeams(5);
+                    fetchTopTeams(page.teamsCount);
                 });
             });
         };

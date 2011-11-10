@@ -71,8 +71,8 @@ table.jqplot-table-legend, table.jqplot-cursor-legend {
 .teams { float: left; width: 240px; height: 409px; background-position: 0 -73px; }
 .teams .teamsCont { margin: 70px 0 30px 20px; color: #222; position: relative; top: 20px; font-family: 'RodeoBold'; font-size: 21px; font-weight: normal;}
 .teams #teamsList { top: 20px; position: relative; font-family: 'RodeoBold'; font-size: 18px;}
-.teams #teamsList li { margin: 20px 0 0 30px; position: relative; left: 30px;}
-.teams #teamsList li a { font-family: 'RodeoBold'; color: black; font-size: 17px; text-decoration: none;}
+.teams #teamsList li { margin: 8px 0 0 10px; position: relative; left: 30px;}
+.teams #teamsList li a { font-family: 'RodeoBold'; color: black; font-size: 16px; text-decoration: none;}
 
 .members {}
 
@@ -82,10 +82,10 @@ table.jqplot-table-legend, table.jqplot-cursor-legend {
 .teamsProgress { width: 735px; height: 497px; float: left; left: 270px;  padding-top: 65px; background-position: -252px 0; position: absolute; }
 .teamsProgress span { font-family: 'RodeoBold'; font-size: 18px; margin-left: 100px;}
 
-.teamProgressitem { margin: 20px 0 0 100px;}
+.teamProgressitem { margin: 10px 0 0 100px;}
 
 .teamProgress .progress { width: 100px;  border: 1px solid #000; position: absolute; }
-.progress { height: 29px; position: relative; left: 0px; margin-bottom: 15px; background-color: #111; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; -moz-box-shadow: 0px 1px 3px #000; -webkit-box-shadow: 0px 1px 3px #000; box-shadow: 0px 1px 3px #000; color: white; }
+.progress { height: 9px; position: relative; left: 0px; margin-bottom: 8px; background-color: #111; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; -moz-box-shadow: 0px 1px 3px #000; -webkit-box-shadow: 0px 1px 3px #000; box-shadow: 0px 1px 3px #000; color: white; }
 .teamProgressitem .progress .score { font-family: 'UbuntuLight'; color: #efefef; font-weight: normal; padding:7px 0 0 20px;}
 
 
