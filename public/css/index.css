@@ -68,7 +68,7 @@ table.jqplot-table-legend, table.jqplot-cursor-legend {
 }
 
 .content { width: 100%; margin-top: 60px; min-width: 1024px;}
-.teams { float: left; width: 240px; height: 409px; background-position: 0 -73px; }
+.teams { float: left; width: 240px; height: 409px; background-position: 0 -73px; overflow: hidden;}
 .teams .teamsCont { margin: 70px 0 30px 20px; color: #222; position: relative; top: 20px; font-family: 'RodeoBold'; font-size: 21px; font-weight: normal;}
 .teams #teamsList { top: 20px; position: relative; font-family: 'RodeoBold'; font-size: 18px;}
 .teams #teamsList li { margin: 8px 0 0 10px; position: relative; left: 30px;}
