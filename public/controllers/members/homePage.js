@@ -27,7 +27,7 @@
         }
 
         this.handleEvent = function(type, data){
-            if(type == "team.totalPoints.changed" || type == "member.points.changed") {
+            if(type == "member.points.changed") {
                 fetchTopMembers(page.membersCount);
             }
         }
