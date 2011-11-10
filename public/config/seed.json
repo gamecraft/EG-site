@@ -1,0 +1,19 @@
+{
+    "mode": "local",
+    "pages": [
+        {
+            "controller": "MembersHomePage", 
+            "title": "Информация за участниците",
+            "pages": [
+                {
+                    "controller": "MembersPoints",
+                    "title": "Точки"
+                }
+            ]
+        }, 
+        {
+            "controller": "MembersListing",
+            "title": "Участници"
+        }
+    ]
+}

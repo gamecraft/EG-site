@@ -26,13 +26,15 @@
                             var view = $(parseTpl(tmplData, data));
                             if(before)
                                 before(view);
-                            return $(target).html(view);
+                            $(target).html(view)
+                            return view;
                         },
                         append: function(data, target, before) {
                             var view = $(parseTpl(tmplData, data));
                             if(before)
                                 before(view);
-                            return $(target).append(view);
+                            $(target).append(view);
+                            return view;
                         }
                     };
 

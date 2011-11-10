@@ -1,0 +1,31 @@
+{
+    "mode": "local",
+    "pages": [
+        {
+            "controller": "TeamsHomePage", 
+            "title": "Информация за отборите",
+            "pages": [
+                {
+                    "controller": "TeamsPoints",
+                    "title": "Точки"
+                },
+                {
+                    "controller": "Stats",
+                    "title": "Статистика"
+                }
+            ]
+        }, 
+        {
+            "controller": "Achievements",
+            "title": "Постижения"
+        }, 
+        {
+            "controller": "Skills",
+            "title": "Умения"
+        }, 
+        {
+            "controller": "Rules",
+            "title": "Правила"
+        }
+    ]
+}
