@@ -5,7 +5,7 @@
         var competitors = new global.modules.Members();
 
         var fetchTopMembers = function(topCount, next) {
-            console.log(topCount);
+
             global.repo('TeamMember').list({},null,null,function(err, response){
                 if(err)
                     throw err;

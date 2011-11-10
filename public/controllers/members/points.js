@@ -24,8 +24,9 @@
             return b.points - a.points;
         };
         this.renderTo = function(membersData,target) {
-            
+                
                 $(target).html("");
+
                  global.view("/views/points-item.html")
                     .loadView(function(view){
                         pointsView = view;
