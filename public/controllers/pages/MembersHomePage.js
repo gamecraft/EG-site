@@ -1,22 +1,27 @@
 (function(){
-    global.modules.TeamsHomePage = function(page){
+    global.modules.MembersHomePage = function(page){
         var currentPagew = null;
-        var topTeams = null;
-        var competitors = new global.modules.Teams();
+        var topMembers = null;
+        var competitors = new global.modules.Members();
 
-        var fetchTopTeams = function(topCount, next) {
-            global.repo('Team').list({},topCount,null,function(err, response){
+        var fetchTopMembers = function(topCount, next) {
+
+            global.repo('TeamMember').list({},null,null,function(err, response){
                 if(err)
                     throw err;
 
-                topTeams = response.data.sort(function(a, b) {
-                    return b.totalPoints - a.totalPoints;
+                topMembers = response.data.sort(function(a, b) {
+                    if(a.points == b.points)
+                        return (new Date(b.updatedAt)).getTime()-(new Date(a.updatedAt)).getTime();
+                    return b.points - a.points;
                 });
 
-                competitors.renderTo(topTeams, $(".teams")); 
+                topMembers = topMembers.splice(0, topCount);
 
-                if(currentPage instanceof global.modules.TeamsPoints) 
-                    currentPage.renderTo(topTeams, $(".dest"));
+                competitors.renderTo(topMembers, $(".teams")); 
+
+                if(currentPage instanceof global.modules.MembersPoints) 
+                    currentPage.renderTo(topMembers, $(".dest"));
 
                 if(next)
                     next();
@@ -24,8 +29,8 @@
         }
 
         this.handleEvent = function(type, data){
-            if(type == "team.totalPoints.changed") {
-                fetchTopTeams(page.teamsCount);
+            if(type == "member.points.changed") {
+                fetchTopMembers(page.membersCount);
             }
         }
 
@@ -42,13 +47,13 @@
                                 var btn = btnView.append({title: p.title}, $(".pageBtns", target));
                                 btn.click(function(){
                                    currentPage = new (global.modules[p.controller])();
-                                   currentPage.renderTo(topTeams, $(".dest"));
+                                   currentPage.renderTo(topMembers, $(".dest"));
                                 });
                             });
                         });
                     
                     currentPage = new (global.modules[page.pages[0].controller])();
-                    fetchTopTeams(page.teamsCount);
+                    fetchTopMembers(page.membersCount);
                 });
             });
         };

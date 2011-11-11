@@ -12,6 +12,8 @@
                         .loadView(function(view) {
                             loadAllMemberrs(function(members) {
                                 members = members.sort(function(a, b) {
+                                    if(a.points == b.points)
+                                        return (new Date(b.updatedAt)).getTime()-(new Date(a.updatedAt)).getTime();
                                     return b.points - a.points;
                                 });
                                 for(var i in members)

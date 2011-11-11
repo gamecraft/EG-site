@@ -20,9 +20,6 @@
             }
             return maxPoints;
         };
-        var compareTotals = function(a, b) {
-            return b.points - a.points;
-        };
         this.renderTo = function(membersData,target) {
                 
                 $(target).html("");
@@ -31,12 +28,11 @@
                     .loadView(function(view){
                         pointsView = view;
                         var maxPoints=getMaxPoints(membersData);
-                        var dataSorted = membersData.sort(compareTotals);
-                         for(var i in dataSorted){
-                             pointsView.append({points: dataSorted[i].points,team: "Участник "+dataSorted[i].name,
-                                 progress:calculateProgress(maxPoints,dataSorted[i].points)}
-                             , target);
-                         }
+                        for(var i in membersData){
+                         pointsView.append({points: membersData[i].points,team: "Участник "+membersData[i].name,
+                             progress:calculateProgress(maxPoints,membersData[i].points)}
+                         , target);
+                        }
                   });
         };
     };

@@ -20,9 +20,6 @@
             }
             return maxPoints;
         };
-        var compareTotals = function(a, b) {
-            return b.totalPoints - a.totalPoints;
-        };
         this.renderTo = function(teamsData,target) {
             
                 $(target).html("");
@@ -30,10 +27,9 @@
                     .loadView(function(view){
                         pointsView = view;
                         var maxPoints=getMaxPoints(teamsData);
-                        var teamsDataSorted = teamsData.sort(compareTotals);
-                         for(var i in teamsDataSorted){
-                             pointsView.append({points: teamsDataSorted[i].totalPoints,team: "Отбор "+teamsDataSorted[i].name,
-                                 progress:calculateProgress(maxPoints,teamsDataSorted[i].totalPoints)}
+                         for(var i in teamsData){
+                             pointsView.append({points: teamsData[i].totalPoints,team: "Отбор "+teamsData[i].name,
+                                 progress:calculateProgress(maxPoints,teamsData[i].totalPoints)}
                              , target);
                          }
                   });
