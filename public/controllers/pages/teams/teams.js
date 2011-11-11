@@ -10,7 +10,7 @@
                     global.view("/views/team-member.html")
                     .loadView(function(view){
                         for(var i in response.data){
-                            view.append({memberName: response.data[i].name}, $(".membersList"));
+                            view.append({memberName: response.data[i].name.substr(0,20)}, $(".membersList"));
                         }
                         $(".backBtn").click(function(e){
                             $(target).html("");
@@ -30,7 +30,7 @@
                 .loadView(function(teamView){
 
                     for(var i in teamsData){
-                        var team=teamView.append({name: teamsData[i].name}, $("#teamsList", target));
+                        var team=teamView.append({name: teamsData[i].name.substr(0,20)}, $("#teamsList", target));
                         $("a.btn", team)[0]._id=teamsData[i]._id;
                     }
                     $("a.btn", target).click(function(e){

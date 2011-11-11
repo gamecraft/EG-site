@@ -16,12 +16,9 @@
                                         return (new Date(b.updatedAt)).getTime()-(new Date(a.updatedAt)).getTime();
                                     return b.points - a.points;
                                 });
-                                for(var i in members)
-                                    view.append({
-                                        name: members[i].name,
-                                        points: members[i].points
-                                    }, 
-                                    $(".membersList", body) );
+                                for(var i in members) {
+                                    view.append( { name: members[i].name, points: members[i].points}, $(".membersList", body) );
+                                }
                            });
                        });
                 });

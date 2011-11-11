@@ -7,7 +7,7 @@
                 .loadView(function(teamView){
 
                     for(var i in membersData){
-                        var team=teamView.append({name: membersData[i].name}, $("#teamsList", target));
+                        var team=teamView.append({name: membersData[i].name.substr(0,20)}, $("#teamsList", target));
                         $("a.btn", team)[0]._id=membersData[i]._id;
                     }
                     
